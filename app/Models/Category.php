@@ -48,4 +48,7 @@ class Category extends Model
         return $this->belongsToMany('App\Models\Idea', 'idea_categories');
     }
 
+    public function users(){
+        return $this->belongsToMany('App\User')->withTimestamps();
+    }
 }

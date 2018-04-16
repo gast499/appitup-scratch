@@ -52,6 +52,9 @@ class Idea extends Model
         return $this->belongsToMany('App\Models\Category', 'idea_categories')->withTimestamps();
     }
 
+    public function users(){
+        return $this->belongsToMany('App\User', 'ideas_users')->withTimestamps();
+    }
     public function assignCategory($category_id){
         $this->categories()->attach($category_id);
     }

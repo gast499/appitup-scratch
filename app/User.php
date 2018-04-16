@@ -46,4 +46,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function categories(){
+        return $this->belongsToMany('App\Models\Category', 'categories_users');
+    }
+
+    public function ideas(){
+        return $this->belongsToMany('App\Models\Idea', 'ideas_users');
+    }
 }

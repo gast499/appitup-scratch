@@ -156,6 +156,8 @@ return [
         \InfyOm\Generator\InfyOmGeneratorServiceProvider::class,
         \InfyOm\AdminLTETemplates\AdminLTETemplatesServiceProvider::class,
         \InfyOm\RoutesExplorer\RoutesExplorerServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
+        //MrEssex\LaravelAuthProfile\AuthProfileServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -216,7 +218,7 @@ return [
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
         'Flash'     => Laracasts\Flash\Flash::class,
-
+        'Image' => Intervention\Image\Facades\Image::class,
     ],
 
 ];

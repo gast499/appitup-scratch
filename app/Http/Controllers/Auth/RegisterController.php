@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -62,8 +63,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        global $type;
-        $type = $data['type'];
+
         return User::create([
             'type' => $data['type'],
             'email' => $data['email'],

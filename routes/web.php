@@ -25,3 +25,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/category', 'CategoryController@index');
 Route::get('/category/create', 'CategoryController@create')->name('category.create');
+Route::get('/profile', 'ProfileController@viewCurrentUserProfile')->name('profile');
+Route::post('/profile', 'ProfileController@editCurrentUserProfile')->name('edit-profile');

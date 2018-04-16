@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+    <script>
+        function uploadImg(){
+            document.getElementById("profile-img-upload").click();
+        }
+    </script>
     <div class="container">
         <div class="row">
             <div class="col-md-9 personal-info">
@@ -21,10 +26,10 @@
                     @if (Session::has('message'))
                         <div class="alert alert-info">{{ Session::get('message') }}</div>
                     @endif
-                    <div class="form-group row">
+                    <div class="form-group row" id="profile-img" onclick="uploadImg()">
                         <img src="/storage/avatars/{{$user->id}}/{{ $user->avatar }}"
                              style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
-                        <input type="file" name="avatar">
+                        <input type="file" style="display: none;" id="profile-img-upload" name="avatar">
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-3 control-label">Name:</label>

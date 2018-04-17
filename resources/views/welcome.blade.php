@@ -40,6 +40,23 @@
                 padding-top: 62px;
             }
 
+            #tagline1 {
+                position: absolute;
+                left: 190px;
+                top: 382px;
+            }
+
+            #tagline2 {
+                position: absolute;
+                left: 190px;
+                top: 422px;
+            }
+
+            .tagline {
+                font-size: 36px;
+                font-style: oblique;
+            }
+
             .top-right {
                 position: absolute;
                 right: 10px;
@@ -62,16 +79,22 @@
             <div id="AppItUpTitle">
                 AppItUp
             </div>
-        </div>
             @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
+            <div class="top-right links">
+                @auth
+                <a href="{{ url('/home') }}">Home</a>
+                @else
+                <a href="{{ route('login') }}">Login</a>
+                <a href="{{ route('register') }}">Register</a>
+                @endauth
+            </div>
             @endif
+        </div>
+        <div id="tagline1" class="tagline">
+            Empowering Students
+        </div>
+        <div id="tagline2" class="tagline">
+            Through Real Projects
+        </div>
     </body>
 </html>

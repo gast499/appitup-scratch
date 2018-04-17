@@ -54,21 +54,24 @@
             }
 
             .circle {
-                width: 200px;
-                height: 200px;
+                width: 400px;
+                height: 400px;
                 background-color: #7dfadd;
+                border-radius: 200px;
             }
 
             #circle1 {
                 position: absolute;
                 top: 200px;
-                left: 10px;
+                left: -100px;
+                z-index: -1;
             }
 
             #circle2 {
                 position: absolute;
                 top: 5px;
                 right: 40px;
+                z-index: -1;
             }
 
             .tagline {

@@ -22,38 +22,23 @@
             }
 
             .navbar {
-                height: 140px;
+                height: 100px;
                 width: 100%;
                 margin: 0;
                 padding: 0;
             }
 
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
+            #AppItUpTitle {
+                height: 100px;
+                margin-left: 50px;
+                padding: 0;
+                background-color: #39D9AD;
             }
 
             .top-right {
                 position: absolute;
                 right: 10px;
                 top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
             }
 
             .links > a {
@@ -64,10 +49,6 @@
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
             }
         </style>
     </head>

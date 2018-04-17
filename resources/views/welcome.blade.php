@@ -29,16 +29,21 @@
             }
 
             #AppItUpTitle {
-                height: 100px;
+                height: 38px;
                 margin-left: 50px;
                 padding: 0;
                 background-color: #39D9AD;
+                width: 140px;
+                text-align: center;
+                color: white;
+                font-size: 24px;
+                padding-top: 62px;
             }
 
             .top-right {
                 position: absolute;
                 right: 10px;
-                top: 18px;
+                top: 57px;
             }
 
             .links > a {

@@ -50,11 +50,29 @@
                 position: absolute;
                 left: 190px;
                 top: 422px;
+                font-weight: bold;
+            }
+
+            .circle {
+                width: 200px;
+                height: 200px;
+                background-color: #7dfadd;
+            }
+
+            #circle1 {
+                position: absolute;
+                top: 200px;
+                left: 10px;
+            }
+
+            #circle2 {
+                position: absolute;
+                top: 5px;
+                right: 40px;
             }
 
             .tagline {
                 font-size: 36px;
-                font-style: oblique;
             }
 
             .top-right {
@@ -96,5 +114,7 @@
         <div id="tagline2" class="tagline">
             Through Real Projects
         </div>
+        <div id="circle1" class="circle"></div>
+        <div id="circle2" class="circle"></div>
     </body>
 </html>

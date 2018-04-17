@@ -34,15 +34,31 @@
                         </tr>
                     </table>
                 </div>
-                @if(($user->type == "Creator") && (isset($user->platform)))
-                    <div class="card card-select" id="{{$user->platform}}-cardSelect" style="width: 18rem;"
-                         data-value="{{$user->platform}}">
-                        <img class="card-img-top" src="{{asset('assets/images/creator.png')}}"
-                             alt="{{$user->platform}} image">
-                        <div class="card-body">
-                            <h5 class="card-title">{{$user->platform}}</h5>
+                @if($user->type == "Creator")
+                    @if(isset($user->categories))
+                        <h4>Interests</h4>
+                        @foreach($user->categories as $cat)
+                            <div class="card card-select" id="{{$cat->name}}-cardSelect" style="width: 18rem;"
+                                 data-value="{{$cat->id}}">
+                                <img class="card-img-top" src="{{asset('assets/images/creator.png')}}"
+                                     alt="{{$cat->name}} image">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{$cat->name}}</h5>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
+                    @if(isset($user->platform))
+                        <h4>Platform: </h4>
+                        <div class="card card-select" id="{{$user->platform}}-cardSelect" style="width: 18rem;"
+                             data-value="{{$user->platform}}">
+                            <img class="card-img-top" src="{{asset('assets/images/dreamer.png')}}"
+                                 alt="{{$user->platform}} image">
+                            <div class="card-body">
+                                <h5 class="card-title">{{$user->platform}}</h5>
+                            </div>
                         </div>
-                    </div>
+                    @endif
                 @elseif($user->type == "Dreamer" && (isset($user->ideas)))
                     <h1 class="pull-right">
                         <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px"

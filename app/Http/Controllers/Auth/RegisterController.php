@@ -61,13 +61,23 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
+    private function createDir($user){
+        $tmp = 'public/avatars/'.$user->id.'/';
+        if(!in_array($user->id, Storage::directories('public/avatars'))){
+            //mkdir('storage/app/public/avatars/'.$user->id.'/');
+            Storage::makeDirectory($tmp);
+            Storage::copy('public/avatars/default.jpg', $tmp.'default.jpg');
+        }
+    }
     protected function create(array $data)
     {
 
-        return User::create([
+        $user = User::create([
             'type' => $data['type'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        $this->createDir($user);
+        return $user;
     }
 }

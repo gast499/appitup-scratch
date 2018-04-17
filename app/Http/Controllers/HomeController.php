@@ -24,15 +24,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        $user = Auth::user();
-        $tmp = 'public/avatars/'.$user->id.'/';
-        if(!in_array($user->id, Storage::directories('public/avatars'))){
-            //mkdir('storage/app/public/avatars/'.$user->id.'/');
-            Storage::makeDirectory($tmp);
-            Storage::copy('public/avatars/default.jpg', $tmp.'default.jpg');
-        }
         return view('home');
     }
 }

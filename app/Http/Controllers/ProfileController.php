@@ -9,20 +9,22 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Validator;
 use Image;
 use Illuminate\Validation\Rule;
+use App\Repositories\CategoriesRepository;
 
 class ProfileController extends Controller
 {
-
+    private $categoriesRepository;
     /**
      * Add auth middleware upon initialisation.
      *
      * @author Kyle Essex
      */
-    public function __construct()
+    public function __construct(CategoriesRepository $categoriesRepo)
     {
         // Allow access to only authenticated users
         $this->middleware('web');
         $this->middleware('auth'); // Some reason adding both middleware is the only way to go!
+        $this->categoriesRepository = $categoriesRepo;
     }
 
     /**
@@ -42,7 +44,8 @@ class ProfileController extends Controller
     {
         // Get the current authenticated user object
         $user = User::find($request->user()->id);
-        return view('profiles.edit', ['user' => $user]) ;
+        $categories = $this->categoriesRepository->all();
+        return view('profiles.edit', ['user' => $user, 'categories' => $categories]) ;
     }
 
     /**
@@ -88,6 +91,26 @@ class ProfileController extends Controller
             ]);
             $user->platform = $request['platform'];
         }
+        if($request['categories']){
+            $cats = json_decode($request["categories"]);
+            $this->validate($request, [
+                'categories' => 'required'
+            ]);
+            $userCatIds = [];
+            foreach ($user->categories as $ucat){
+                array_push($userCatIds, $ucat->id);
+            }
+            foreach ($cats as $cat){
+                if (!in_array($cat, $userCatIds)){
+                    $user->categories()->attach($cat);
+                }
+            }
+            $detId = array_diff($userCatIds, $cats);
+            foreach ($detId as $did){
+                $user->categories()->detach($did);
+            }
+            sleep(1);
+        }
         if($request['avatar']){
             $avatar = $request->file('avatar');
             $filename = time().'.'.$avatar->getClientOriginalExtension();
@@ -110,7 +133,8 @@ class ProfileController extends Controller
         $user->save();
 
         Session::flash('message', "Profile Successfully Updated!");
-        return view('profiles.view', ['user' => $user]) ;
+        return redirect()->route('profile');
+        //return view('profiles.view', ['user' => $user]) ;
 ;
     }
 }

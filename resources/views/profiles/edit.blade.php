@@ -2,25 +2,12 @@
 
 @section('content')
     <script>
+        window.onload = function () {
+            document.getElementById('platform').click();
+        }
         function uploadImg() {
             document.getElementById("profile-img-upload").click();
         }
-        function selectCard(cardVal){
-            var des = document.getElementsByClassName("card-select");
-            var currSel = document.getElementById(cardVal+"-cardSelect");
-            for (var i = 0; i < des.length; i++){
-                if (des[i].classList.contains("is-selected") && des[i] != currSel){
-                    des[i].classList.remove("is-selected");
-                }
-            }
-            currSel.classList.toggle("is-selected");
-            var type = "";
-            if (currSel.classList.contains("is-selected")){
-                type=currSel.getAttribute("data-value");
-            }
-            document.getElementById("platform").value=type;
-            //document.getElement()
-        };
     </script>
     <div class="container">
         <div class="row">
@@ -68,6 +55,7 @@
                         </div>
                     </div>
                     @if($user->type == "Creator")
+                        @include('profiles.category_cards')
                         @include('profiles.platform_cards')
                     @endif
                     <div class="form-group">

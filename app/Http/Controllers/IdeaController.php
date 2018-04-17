@@ -5,21 +5,25 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateIdeaRequest;
 use App\Http\Requests\UpdateIdeaRequest;
 use App\Repositories\IdeaRepository;
+use App\Repositories\CategoriesRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\User;
 use App\Models\Category;
 
 class IdeaController extends AppBaseController
 {
     /** @var  IdeaRepository */
     private $ideaRepository;
+    private $categoryRepository;
 
-    public function __construct(IdeaRepository $ideaRepo)
+    public function __construct(IdeaRepository $ideaRepo, CategoriesRepository $categoryRepo)
     {
         $this->ideaRepository = $ideaRepo;
+        $this->categoryRepository = $categoryRepo;
     }
 
     /**
@@ -46,7 +50,8 @@ class IdeaController extends AppBaseController
      */
     public function create()
     {
-        return view('ideas.create');
+        $categories = $this->categoryRepository->all();
+        return view('ideas.create')->with('categories', $categories);
     }
 
     /**
@@ -58,14 +63,51 @@ class IdeaController extends AppBaseController
      */
     public function store(CreateIdeaRequest $request)
     {
-        $input = $request->all();
+        if ($request['categories']) {
+            $cats = json_decode($request["categories"]);
+            $this->validate($request, [
+                'categories' => "required"
+            ]);
+        }
+        $input = $request->except('categories');
 
         $idea = $this->ideaRepository->create($input);
+        $user = User::find($request->user()->id);
+        $user->ideas()->attach($idea->id);
+        foreach ($cats as $cat) {
+            $idea->categories()->attach($cat);
+        }
 
         Flash::success('Idea saved successfully.');
 
+
         return redirect(route('ideas.index'));
     }
+
+//    public function store(Request $request)
+//    {
+//        $user = User::find($request->user()->id);
+//        if($request['platform']){
+//            $this->validate($request, [
+//                'platform' => Rule::in(['Android', 'iOS', 'Web'])
+//            ]);
+//            $platform = $request['platform'];
+//        }
+//        if($request['categories']){
+//            $cats = json_decode($request["categories"]);
+//            $this->validate($request, [
+//                'categories' => "required"
+//            ]);
+//
+//        }
+//        $input = $request->all();
+//
+//        $idea = $this->ideaRepository->create($input);
+//
+//        Flash::success('Idea saved successfully.');
+//
+//        return redirect(route('ideas.index'));
+//    }
 
     /**
      * Display the specified Idea.
@@ -110,7 +152,7 @@ class IdeaController extends AppBaseController
     /**
      * Update the specified Idea in storage.
      *
-     * @param  int              $id
+     * @param  int $id
      * @param UpdateIdeaRequest $request
      *
      * @return Response

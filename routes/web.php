@@ -26,4 +26,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/category', 'CategoryController@index');
 Route::get('/category/create', 'CategoryController@create')->name('category.create');
 Route::get('/profile', 'ProfileController@viewCurrentUserProfile')->name('profile');
-Route::post('/profile', 'ProfileController@editCurrentUserProfile')->name('edit-profile');
+Route::get('/profile/edit', 'ProfileController@viewEditCurrentUserProfile')->name('view-edit-profile');
+Route::post('/profile/edit', 'ProfileController@editCurrentUserProfile')->name('edit-profile');
+
+Route::get('/pitch', 'PitchController@pitch');

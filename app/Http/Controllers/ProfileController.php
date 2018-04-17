@@ -8,6 +8,7 @@ use Session;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Validator;
 use Image;
+use Illuminate\Validation\Rule;
 
 class ProfileController extends Controller
 {
@@ -35,6 +36,13 @@ class ProfileController extends Controller
         // Get the current authenticated user object
         $user = User::find($request->user()->id);
         return view('profiles.view', ['user' => $user]) ;
+    }
+
+    public function viewEditCurrentUserProfile(Request $request)
+    {
+        // Get the current authenticated user object
+        $user = User::find($request->user()->id);
+        return view('profiles.edit', ['user' => $user]) ;
     }
 
     /**
@@ -74,6 +82,12 @@ class ProfileController extends Controller
             ]);
             $user->location = $request["location"];
         }
+        if($request['platform']){
+            $this->validate($request, [
+                'platform' => Rule::in(['Android', 'iOS', 'Web'])
+            ]);
+            $user->platform = $request['platform'];
+        }
         if($request['avatar']){
             $avatar = $request->file('avatar');
             $filename = time().'.'.$avatar->getClientOriginalExtension();
@@ -96,6 +110,7 @@ class ProfileController extends Controller
         $user->save();
 
         Session::flash('message', "Profile Successfully Updated!");
-        return redirect()->back();
+        return view('profiles.view', ['user' => $user]) ;
+;
     }
 }

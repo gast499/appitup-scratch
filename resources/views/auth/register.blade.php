@@ -17,21 +17,21 @@
                                 <h2>Who are you?</h2>
                             </div>
                             <div class="form-group row">
-                                <div class="card card-select" id="data-cardSelect1" style="width: 18rem;" data-value="dreamer" onclick="selectCard('1')">
+                                <div class="card card-select" id="data-cardSelect1" style="width: 18rem;" data-value="Dreamer" onclick="selectCard('1')">
                                     <img class="card-img-top" src="{{asset('assets/images/dreamer.png')}}"
                                          alt="Card image cap">
                                     <div class="card-body">
                                         <h5 class="card-title">Dreamer</h5>
                                     </div>
                                 </div>
-                                <input type="hidden" id="type" name="type" value="">;
-                                <div class="card card-select" id="data-cardSelect2" style="width: 18rem;" data-value="creator" onclick="selectCard('2')">
+                                <div class="card card-select" id="data-cardSelect2" style="width: 18rem;" data-value="Creator" onclick="selectCard('2')">
                                     <img class="card-img-top" src="{{asset('assets/images/creator.png')}}"
                                          alt="Card image cap">
                                     <div class="card-body">
                                         <h5 class="card-title">Creator</h5>
                                     </div>
                                 </div>
+                                <input type="hidden" id="type" name="type" value="">;
                             </div>
                             <div class="form-group row">
                                 <label for="email"

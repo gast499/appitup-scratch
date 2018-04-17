@@ -35,7 +35,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'email', 'password', 'type', 'location', 'first_name', 'last_name', 'avatar'
+        'email', 'password', 'type', 'location', 'first_name', 'last_name', 'avatar', 'platform'
     ];
 
     /**
@@ -48,10 +48,10 @@ class User extends Authenticatable
     ];
 
     public function categories(){
-        return $this->belongsToMany('App\Models\Category', 'categories_users');
+        return $this->belongsToMany('App\Models\Category', 'categories_users')->withTimestamps();
     }
 
     public function ideas(){
-        return $this->belongsToMany('App\Models\Idea', 'ideas_users');
+        return $this->belongsToMany('App\Models\Idea', 'ideas_users')->withTimestamps();
     }
 }

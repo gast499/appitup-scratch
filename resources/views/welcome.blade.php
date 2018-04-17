@@ -56,7 +56,8 @@
             .circle {
                 width: 400px;
                 height: 400px;
-                background-color: #7dfadd;
+                background-color: #39D9AD;
+                opacity: 50%;
                 border-radius: 200px;
             }
 

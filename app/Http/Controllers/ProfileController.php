@@ -135,6 +135,5 @@ class ProfileController extends Controller
         Session::flash('message', "Profile Successfully Updated!");
         return redirect()->route('profile');
         //return view('profiles.view', ['user' => $user]) ;
-;
     }
 }

@@ -28,5 +28,5 @@ Route::get('/category/create', 'CategoryController@create')->name('category.crea
 Route::get('/profile', 'ProfileController@viewCurrentUserProfile')->name('profile');
 Route::get('/profile/edit', 'ProfileController@viewEditCurrentUserProfile')->name('view-edit-profile');
 Route::post('/profile/edit', 'ProfileController@editCurrentUserProfile')->name('edit-profile');
-
+Route::get('/idea/match', 'IdeaController@match')->name('idea.match');
 Route::get('/pitch', 'PitchController@pitch');

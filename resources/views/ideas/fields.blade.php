@@ -64,7 +64,7 @@
     </div>
     <input type="hidden" id="platform" name="platform" value="">
 </div>
-    <h2>Select Categiories you're looking into</h2>
+    <h2>Select Categories you're looking into</h2>
 <div class="form-group col-sm-6">
     <?php $i = 0 ?>
     @foreach($categories as $category)
@@ -99,6 +99,6 @@
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
-    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+    {!! Form::submit('Find Me a Creator', ['class' => 'btn btn-primary']) !!}
     <a href="{!! route('ideas.index') !!}" class="btn btn-default">Cancel</a>
 </div>

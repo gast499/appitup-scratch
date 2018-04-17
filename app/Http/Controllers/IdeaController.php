@@ -13,6 +13,8 @@ use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use App\User;
 use App\Models\Category;
+use App\Models\Idea;
+use Illuminate\Support\Facades\DB;
 
 class IdeaController extends AppBaseController
 {
@@ -25,7 +27,42 @@ class IdeaController extends AppBaseController
         $this->ideaRepository = $ideaRepo;
         $this->categoryRepository = $categoryRepo;
     }
+    private function matchPlatform(User $creator, Idea $idea){
+        if ($creator->platform == $idea->platform){
+            return 1;
+        }
+        return 0;
+    }
 
+    private function matchCategories(User $creator, Idea $idea){
+        $creatorCats = $creator->categories;
+        $dreamerCats = $idea->categories;
+        $num = 0;
+        foreach($creatorCats as $cc){
+            if(in_array($cc, $dreamerCats)){
+                $num+=1;
+            }
+        }
+        return $num;
+    }
+
+    private function calcMatch(User $creator, Idea $idea){
+//        dd($this->matchCategories($creator, $idea));
+        dd($idea);
+
+    }
+
+    public function match(Request $request, Idea $idea){
+        //$creators = DB::table('users')->where('type', 'Creator')->get();
+
+        $creators = User::where('type', 'Creator')->get();
+        $matchVals = [];
+        foreach ($creators as $creator){
+            $val = $this->calcMatch($creator, $idea);
+            $matchVals[$creator->id] = $val;
+        }
+
+    }
     /**
      * Display a listing of the Idea.
      *
@@ -79,9 +116,9 @@ class IdeaController extends AppBaseController
         }
 
         Flash::success('Idea saved successfully.');
-
-
-        return redirect(route('ideas.index'));
+        $this->matchCategories()
+        return redirect()->route('idea.match', ['idea'=>$idea]);
+//        return redirect(route('ideas.index'));
     }
 
 //    public function store(Request $request)

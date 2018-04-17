@@ -64,24 +64,26 @@
                 position: absolute;
                 top: 200px;
                 left: -100px;
-                z-index: -1;
+                z-index: 0;
             }
 
             #circle2 {
                 position: absolute;
                 top: 5px;
                 right: 40px;
-                z-index: -1;
+                z-index: 0;
             }
 
             .tagline {
                 font-size: 36px;
+                z-index: 1;
             }
 
             .top-right {
                 position: absolute;
                 right: 10px;
                 top: 57px;
+                z-index: 1;
             }
 
             .links > a {

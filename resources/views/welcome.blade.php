@@ -21,6 +21,13 @@
                 margin: 0;
             }
 
+            .navbar {
+                height: 140px;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
             .full-height {
                 height: 100vh;
             }
@@ -65,7 +72,11 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+        <div class="navbar">
+            <div id="AppItUpTitle">
+                AppItUp
+            </div>
+        </div>
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -76,20 +87,5 @@
                     @endauth
                 </div>
             @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
     </body>
 </html>

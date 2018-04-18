@@ -164,7 +164,7 @@
         font-size: 20px;
     }
 
-    .input {
+    #email, #password {
         border-width: thin;
         border-color: #4A4A4A;
         border-radius: 15px;

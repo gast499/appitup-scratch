@@ -21,7 +21,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/datacard.css') }}" rel="stylesheet">
     <style>
-    html, body {
+    html, body, #app {
         background-color: #fff;
         color: #636b6f;
         font-family: 'Raleway', sans-serif;

@@ -48,7 +48,7 @@ class IdeaController extends AppBaseController
 
     private function calcMatch(User $creator, Idea $idea){
 //        dd($this->matchCategories($creator, $idea));
-        dd($idea);
+        echo dd($idea);
 
     }
 

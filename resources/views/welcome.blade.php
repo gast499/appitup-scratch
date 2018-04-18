@@ -54,11 +54,9 @@
             }
 
             .circle {
-                width: 450px;
-                height: 450px;
                 background-color: #39D9AD;
                 opacity: 0.28;
-                border-radius: 200px;
+
             }
 
             #circle1 {
@@ -66,13 +64,19 @@
                 top: 200px;
                 left: -160px;
                 z-index: 0;
+                border-radius: 450px;
+                width: 450px;
+                height: 450px;
             }
 
             #circle2 {
                 position: absolute;
-                top: 5px;
-                right: 40px;
+                top: -150px;
+                right: 70px;
                 z-index: 0;
+                border-radius: 300px;
+                width: 300px;
+                height: 300px;
             }
 
             .tagline {

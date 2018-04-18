@@ -158,6 +158,17 @@
         text-align: center;
         font-size: 20px;
     }
+
+    #emailpassword {
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .input {
+        border-width: thin;
+        border-color: #4A4A4A;
+        border-radius: 15px;
+    }
     </style>
 </head>
 <body>

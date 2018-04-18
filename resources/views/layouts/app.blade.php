@@ -22,7 +22,7 @@
     html, body {
         background-color: #fff;
         color: #636b6f;
-        font-family: 'Raleway Thin', sans-serif;
+        font-family: 'Raleway', sans-serif;
         font-weight: 100;
         height: 100vh;
         margin: 0;
@@ -112,6 +112,14 @@
         position: absolute;
         right: 118px;
         top: 285px;
+    }
+
+    #whoareyou {
+        position: absolute;
+        top: 215px;
+        margin-left: 647px;
+        margin-right: 647px;
+        text-align: center;
     }
     </style>
 </head>

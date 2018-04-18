@@ -4,6 +4,9 @@
 @endsection
 
 @section('content')
+    <div id="whoareyou">
+        Who are you?
+    </div>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">

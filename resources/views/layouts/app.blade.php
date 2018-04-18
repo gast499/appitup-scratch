@@ -137,6 +137,8 @@
         width: 30%;
         margin-left:10%;
         margin-right:10%;
+        max-width: 400px;
+        max-height: 300px;
     }
 
     #data-cardSelect2 {
@@ -145,6 +147,8 @@
         width: 30%;
         margin-left:10%;
         margin-right:10%;
+                max-width: 400px;
+        max-height: 300px;
     }
     </style>
 </head>

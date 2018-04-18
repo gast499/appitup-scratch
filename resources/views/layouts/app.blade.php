@@ -120,6 +120,8 @@
         margin-left: 647px;
         margin-right: 647px;
         text-align: center;
+        color: #4A4A4A;
+        font-size: 24px;
     }
     </style>
 </head>

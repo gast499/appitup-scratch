@@ -16,9 +16,6 @@
                     <div class="card-body">
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
-                            <div class="row">
-                                <h2>Who are you?</h2>
-                            </div>
                             <div class="form-group row">
                                 <div class="card card-select" id="data-cardSelect1" style="width: 18rem;" data-value="Dreamer" onclick="selectCard('1')">
                                     <img class="card-img-top" src="{{asset('assets/images/dreamer.png')}}"

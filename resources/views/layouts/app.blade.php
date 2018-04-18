@@ -38,7 +38,7 @@
     }
 
     #AppItUpTitle {
-        height: 38px;
+        height: 100%;
         margin-left: 50px;
         padding: 0;
         background-color: #39D9AD;

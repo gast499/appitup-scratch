@@ -77,7 +77,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-        $this->createDir($user);
+//        $this->createDir($user);
         return $user;
     }
 }

@@ -54,17 +54,17 @@
             }
 
             .circle {
-                width: 400px;
-                height: 400px;
+                width: 450px;
+                height: 450px;
                 background-color: #39D9AD;
-                opacity: 50%;
+                opacity: 0.28;
                 border-radius: 200px;
             }
 
             #circle1 {
                 position: absolute;
                 top: 200px;
-                left: -100px;
+                left: -160px;
                 z-index: 0;
             }
 

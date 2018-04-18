@@ -122,6 +122,7 @@
         text-align: center;
         color: #4A4A4A;
         font-size: 24px;
+        width: 200px;
     }
     </style>
 </head>

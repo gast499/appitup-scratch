@@ -116,7 +116,7 @@ class IdeaController extends AppBaseController
         }
 
         Flash::success('Idea saved successfully.');
-        $this->matchCategories()
+        $this->match($idea);
         return redirect()->route('idea.match', ['idea'=>$idea]);
 //        return redirect(route('ideas.index'));
     }

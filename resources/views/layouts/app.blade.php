@@ -164,10 +164,19 @@
         font-size: 20px;
     }
 
+    #register {
+        font-size: 20px;
+        font-family: 'Raleway', sans-serif;
+    }
+
     #email, #password {
         border-width: thin;
         border-color: #4A4A4A;
-        border-radius: 15px;
+        border-radius: 10px;
+        width: 17%;
+        height: 40px;
+        margin-top: 7px;
+        margin-bottom: 7px;
     }
     </style>
 </head>

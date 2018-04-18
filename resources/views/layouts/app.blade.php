@@ -126,6 +126,26 @@
         margin-top: 90px;
         width: 100%;
     }
+
+    .row {
+        width = 100%;
+    }
+
+    .data-cardSelect1 {
+        position: relative;
+        float: left;
+        width: 30%;
+        margin-left:10%;
+        margin-right:10%;
+    }
+
+    .data-cardSelect2 {
+        position: relative;
+        float: right;
+        width: 30%;
+        margin-left:10%;
+        margin-right:10%;
+    }
     </style>
 </head>
 <body>

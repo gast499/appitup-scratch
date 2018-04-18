@@ -132,6 +132,6 @@
         </div>
         <div id="circle1" class="circle"></div>
         <div id="circle2" class="circle"></div>
-        <img id="manClapping" src="man-clapping.png">
+        <img id="manClapping" src="public/images/man-clapping.png">
     </body>
 </html>

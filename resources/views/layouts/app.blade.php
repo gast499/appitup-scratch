@@ -114,12 +114,11 @@
     }
 
     #whoareyou {
-        margin-left: 647px;
-        margin-right: 647px;
         text-align: center;
         color: #4A4A4A;
         font-size: 24px;
-        width: 200px;
+        width: 100%;
+        margin-bottom: 25px;
     }
 
     .content {
@@ -150,6 +149,12 @@
     .signup-img {
         max-width: 400px;
         max-height: 300px;
+    }
+
+    .card-title {
+        font-family: 'Raleway', sans-serif;
+        text-align: center;
+        font-size: 20px;
     }
     </style>
 </head>

@@ -9,7 +9,7 @@
 </div>
 <form method="POST" id="signupForm" action="{{ route('register') }}">
     @csrf
-    <div id="selectType">
+    <div id="selectType" style="display: block;">
         <div class="form-group row">
             <div class="card card-select" id="data-cardSelect1" data-value="Dreamer" onclick="selectCard('1')">
                 <img class="card-img-top signup-img" src="{{asset('assets/images/dreamer.png')}}">
@@ -26,7 +26,7 @@
             <input type="hidden" id="type" name="type" value="">;
         </div>
     </div>
-    <div id="emailpassword">
+    <div id="emailpassword" style="display: none">
         <div class="form-group row">
             <label for="email"
             class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>

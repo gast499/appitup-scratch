@@ -114,8 +114,6 @@
     }
 
     #whoareyou {
-        position: absolute;
-        top: 215px;
         margin-left: 647px;
         margin-right: 647px;
         text-align: center;
@@ -125,8 +123,8 @@
     }
 
     .content {
-        position: absolute;
-        top: 190px;
+        margin-top: 90px;
+        width: 100%;
     }
     </style>
 </head>

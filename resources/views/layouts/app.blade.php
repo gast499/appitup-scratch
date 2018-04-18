@@ -126,7 +126,7 @@
         width: 200px;
     }
 
-    .py-4 {
+    .content {
         position: absolute;
         top: 190px;
     }
@@ -173,7 +173,7 @@
     <div id="app">
     </div>
 
-<main class="py-4">
+<main class="content">
     @yield('content')
 </main>
 </div>

@@ -100,6 +100,12 @@
                 text-decoration: none;
                 text-transform: uppercase;
             }
+
+            #manClapping {
+                position: absolute;
+                right: 118px;
+                top: 285px;
+            }
         </style>
     </head>
     <body>
@@ -126,5 +132,6 @@
         </div>
         <div id="circle1" class="circle"></div>
         <div id="circle2" class="circle"></div>
+        <img id="manClapping" src="man-clapping.png">
     </body>
 </html>

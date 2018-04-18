@@ -12,5 +12,7 @@ function selectCard(cardNum){
         type=currSel.getAttribute("data-value");
     }
     document.getElementById("type").value=type;
+    document.getElementById("selectType").setAttribute("display: none;");
+    document.getElementById("emailpassword").setAttribute("display: block;");
     //document.getElement()
 };

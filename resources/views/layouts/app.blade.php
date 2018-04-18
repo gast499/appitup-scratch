@@ -177,6 +177,10 @@
         height: 40px;
         margin-top: 7px;
         margin-bottom: 7px;
+        font-size: 20px;
+        font-family: 'Raleway', sans-serif;
+        color: #4A4A4A;
+        text-align: center;
     }
     </style>
 </head>

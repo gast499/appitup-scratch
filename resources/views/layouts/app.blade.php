@@ -125,6 +125,11 @@
         font-size: 24px;
         width: 200px;
     }
+
+    cont {
+        position: absolute;
+        top: 190px;
+    }
     </style>
 </head>
 <body>
@@ -168,7 +173,7 @@
     <div id="app">
     </div>
 
-<main class="py-4">
+<main class="py-4 cont">
     @yield('content')
 </main>
 </div>

@@ -124,6 +124,8 @@
     .content {
         margin-top: 90px;
         width: 100%;
+        z-index: 1;
+        position: absolute;
     }
 
     .row {
@@ -203,5 +205,7 @@
     @yield('content')
 </main>
 </div>
+<div id="circle1" class="circle"></div>
+<div id="circle2" class="circle"></div>
 </body>
 </html>

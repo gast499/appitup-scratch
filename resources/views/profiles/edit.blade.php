@@ -2,9 +2,9 @@
 
 @section('content')
     <script>
-        window.onload = function () {
-            document.getElementById('platform').click();
-        }
+        // window.onload = function () {
+        //     document.getElementById('platform').click();
+        // }
         function uploadImg() {
             document.getElementById("profile-img-upload").click();
         }

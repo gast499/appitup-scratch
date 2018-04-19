@@ -25,8 +25,11 @@ class Idea extends Model
 
     public $fillable = [
         'platform',
-        'title'
+        'title',
+        'dev_id'
     ];
+
+    protected $appends = ['user_id', 'category_id'];
 
     /**
      * The attributes that should be casted to native types.
@@ -58,4 +61,20 @@ class Idea extends Model
     public function assignCategory($category_id){
         $this->categories()->attach($category_id);
     }
+    public function scopeDreamer(){
+        return $this->users()->where('type', 'Dreamer');
+    }
+    public function scopeCreator(){
+        return $this->users()->where('type', 'Creator');
+    }
+    public function devs(){
+        return $this->belongsTo('App\User', 'dev_id');
+    }
+    public function getUserIdsAttribute(){
+        return $this->users->pluck('id')->all();
+    }
+    public function getCategoryIdsAttribute(){
+        return $this->categories->pluck('id')->all();
+    }
+
 }

@@ -17,6 +17,8 @@ class CreateIdeasTable extends Migration
             $table->increments('id');
             $table->string('platform');
             $table->string('title');
+            $table->integer('dev_id')->unsigned()->nullable();
+            $table->foreign('dev_id')->references('id')->on('users');
             $table->timestamps();
             $table->softDeletes();
         });

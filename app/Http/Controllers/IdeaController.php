@@ -27,49 +27,116 @@ class IdeaController extends AppBaseController
         $this->ideaRepository = $ideaRepo;
         $this->categoryRepository = $categoryRepo;
     }
-    private function matchPlatform(User $creator, Idea $idea){
-        if ($creator->platform == $idea->platform){
+
+    private function matchPlatform(User $creator, Idea $idea)
+    {
+        if ($creator->platform == $idea->platform) {
             return 1;
         }
         return 0;
     }
 
-    private function matchCategories(User $creator, Idea $idea){
-        $creatorCats = $creator->categories;
-        $dreamerCats = $idea->categories;
+    private function matchCategories(User $creator, Idea $idea)
+    {
+        $creatorCats = $creator->getCategoryIdsAttribute();
+        $dreamerCats = $idea->getCategoryIdsAttribute();
         $num = 0;
-        foreach($creatorCats as $cc){
-            if(in_array($cc, $dreamerCats)){
-                $num+=1;
+        foreach ($creatorCats as $cc) {
+            if (in_array($cc, $dreamerCats)) {
+                $num += 1;
             }
         }
         return $num;
     }
 
-    private function calcMatch(User $creator, Idea $idea){
-//        dd($this->matchCategories($creator, $idea));
-        echo dd($idea);
-
+    private function calcMatch(User $creator, Idea $idea)
+    {
+        $matchedPlatform = $this->matchPlatform($creator, $idea);
+        $numMatchedCats = $this->matchCategories($creator, $idea);
+        return ((0.5 * $matchedPlatform) + (0.5 / (1 + exp(-1 * $numMatchedCats))));
     }
 
-    public function match(Request $request, Idea $idea){
+    public function match(Idea $idea)
+    {
         //$creators = DB::table('users')->where('type', 'Creator')->get();
 
         $creators = User::where('type', 'Creator')->get();
         $matchVals = [];
-        foreach ($creators as $creator){
+        foreach ($creators as $creator) {
             $val = $this->calcMatch($creator, $idea);
             $matchVals[$creator->id] = $val;
         }
 
+        arsort($matchVals);
+        $maxMatches = 15;
+        $currmax = 0.0;
+        $tmparr = [];
+        $finalarr = [];
+        $akeys = array_keys($matchVals);
+        $lastElement = array_pop($akeys);
+        foreach ($matchVals as $key => $value) {
+            if ($currmax == 0.0) {
+                $currmax = $value;
+            }
+            if (($value < $currmax) || $key == $lastElement) {
+                if($key == $lastElement){
+                    $tmparr[$key] = $value;
+                }
+                $endmax = count($tmparr);
+                $maxMatches = 15 - count($finalarr);
+                if ($maxMatches < $endmax) {
+                    $endmax = $maxMatches;
+                }
+                $arrkeys = (array)array_rand($tmparr, $endmax);
+                $t2 = [];
+                foreach ($arrkeys as $ak) {
+                    $t2[$ak] = $matchVals[$ak];
+                }
+                $finalarr = $finalarr + $t2;
+                if (count($finalarr) == 15) {
+                    break;
+                }
+                $tmparr = [];
+                $currmax = $value;
+            }
+            $tmparr[$key] = $value;
+        }
+        return $finalarr;
     }
+
+    public function selectMatch(Request $request)
+    {
+        if ($request['creatorID']) {
+            $this->validate($request, [
+                'creatorID' => 'required'
+            ]);
+        }
+        if ($request['ideaID']) {
+            $this->validate($request, [
+                'ideaID' => 'required'
+            ]);
+        }
+        $idea = Idea::find((int)$request["ideaID"]);
+        $creator = User::find((int)$request["creatorID"]);
+        if($creator->id != $idea->devs->id){
+            $idea->devs()->dissociate();
+            $idea->save();
+            $idea->devs()->associate((int)$request["creatorID"]);
+        }
+        $idea->save();
+//        $creator->projects()->associate((int)$request["ideaID"]);
+        return redirect(route('profile'));
+    }
+
+
     /**
      * Display a listing of the Idea.
      *
      * @param Request $request
      * @return Response
      */
-    public function index(Request $request)
+    public
+    function index(Request $request)
     {
         $this->ideaRepository->pushCriteria(new RequestCriteria($request));
         $ideas = $this->ideaRepository->all();
@@ -85,7 +152,8 @@ class IdeaController extends AppBaseController
      *
      * @return Response
      */
-    public function create()
+    public
+    function create()
     {
         $categories = $this->categoryRepository->all();
         return view('ideas.create')->with('categories', $categories);
@@ -98,7 +166,8 @@ class IdeaController extends AppBaseController
      *
      * @return Response
      */
-    public function store(CreateIdeaRequest $request)
+    public
+    function store(CreateIdeaRequest $request)
     {
         if ($request['categories']) {
             $cats = json_decode($request["categories"]);
@@ -116,8 +185,10 @@ class IdeaController extends AppBaseController
         }
 
         Flash::success('Idea saved successfully.');
-        $this->match($idea);
-        return redirect()->route('idea.match', ['idea'=>$idea]);
+        $foundMatches = $this->match($idea);
+        $matchedIds = array_keys($foundMatches);
+
+        return view('ideas.view')->with('creators', User::find($matchedIds))->with('idea', $idea);
 //        return redirect(route('ideas.index'));
     }
 
@@ -153,7 +224,8 @@ class IdeaController extends AppBaseController
      *
      * @return Response
      */
-    public function show($id)
+    public
+    function show($id)
     {
         $idea = $this->ideaRepository->findWithoutFail($id);
 
@@ -173,7 +245,8 @@ class IdeaController extends AppBaseController
      *
      * @return Response
      */
-    public function edit($id)
+    public
+    function edit($id)
     {
         $idea = $this->ideaRepository->findWithoutFail($id);
 
@@ -194,7 +267,8 @@ class IdeaController extends AppBaseController
      *
      * @return Response
      */
-    public function update($id, UpdateIdeaRequest $request)
+    public
+    function update($id, UpdateIdeaRequest $request)
     {
         $idea = $this->ideaRepository->findWithoutFail($id);
 
@@ -218,7 +292,8 @@ class IdeaController extends AppBaseController
      *
      * @return Response
      */
-    public function destroy($id)
+    public
+    function destroy($id)
     {
         $idea = $this->ideaRepository->findWithoutFail($id);
 

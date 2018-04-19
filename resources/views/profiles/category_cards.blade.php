@@ -3,6 +3,7 @@
         @foreach($user->categories as $cat)
             selectCategory("{{$cat->name}}");
         @endforeach
+        selectPlatform("{{$user->platform}}");
     };
 
     function selectCategory(cardVal) {

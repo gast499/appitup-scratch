@@ -12,5 +12,8 @@ function selectCard(cardNum){
         type=currSel.getAttribute("data-value");
     }
     document.getElementById("type").value=type;
+    document.getElementById("selectType").setAttribute("style","display: none");
+    document.getElementById("emailpassword").setAttribute("style","display: block");
+    document.getElementById("whoareyou").innerHTML = "Welcome aboard!";
     //document.getElement()
 };

@@ -141,7 +141,7 @@ html, body {
     font-size: 20px;
 }
 
-.formgroup > label {
+.form-group {
     text-align: center;
     font-size: 20px;
     font-family: 'Raleway', sans-serif;

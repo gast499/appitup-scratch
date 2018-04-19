@@ -141,7 +141,13 @@ html, body {
     font-size: 20px;
 }
 
-.formgroup {
+.formgroup > label {
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Raleway', sans-serif;
+}
+
+#emailpassword {
     text-align: center;
     font-size: 20px;
 }

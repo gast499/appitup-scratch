@@ -141,7 +141,7 @@ html, body {
     font-size: 20px;
 }
 
-#emailpassword {
+.formgroup {
     text-align: center;
     font-size: 20px;
 }

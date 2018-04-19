@@ -30,7 +30,7 @@
                         <div class="alert alert-info">{{ Session::get('message') }}</div>
                     @endif
                     <div class="form-group row" id="profile-img" onclick="uploadImg()">
-                        <img src="/storage/avatars/{{$user->id}}/{{ $user->avatar }}"
+                        <img src="{{\Illuminate\Support\Facades\Storage::url('public/avatars')}}/{{$user->id}}/{{ $user->avatar }}"
                              style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
                         <input type="file" style="display: none;" id="profile-img-upload" name="avatar">
                     </div>

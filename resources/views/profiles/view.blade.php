@@ -10,7 +10,7 @@
                        href="{!! route('view-edit-profile') !!}">Edit Profile</a>
                 </h1>
                 <div class="row" id="profile-img">
-                    <img src="/storage/avatars/{{$user->id}}/{{ $user->avatar }}"
+                    <img src="{{\Illuminate\Support\Facades\Storage::url('public/avatars')}}/{{$user->id}}/{{ $user->avatar }}"
                          style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
                 </div>
                 <br><br>

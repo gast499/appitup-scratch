@@ -125,7 +125,7 @@ class ProfileController extends Controller
                 //mkdir('storage/app/public/avatars/'.$user->id.'/');
                 Storage::makeDirectory($tmp);
             }
-//            Storage::delete(Storage::files($tmp));
+            Storage::delete(Storage::files($tmp));
             Storage::put($tmp.$filename, (string)$img );
             $user->avatar= $filename;
         }

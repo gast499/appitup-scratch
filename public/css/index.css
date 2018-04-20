@@ -114,6 +114,8 @@ html, body {
     width = 100%;
 }
 
+
+
 #data-cardSelect1 {
     position: relative;
     float: left;
@@ -130,7 +132,7 @@ html, body {
     margin-right:10%;
 }
 
-.signup-img {
+.card-img-top {
     max-width: 400px;
     max-height: 300px;
 }

@@ -35,7 +35,9 @@
     };
 </script>
 <!-- Platform Field -->
-    <h2>What Platform do you want to target?</h2>
+<div class="row intro">
+    What platform is your app on?
+</div>
 <div class="form-group row">
     <div class="card card-select" id="Android-cardSelect" name="platformCards" style="width: 18rem;"
          data-value="Android"

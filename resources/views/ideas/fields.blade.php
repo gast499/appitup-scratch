@@ -32,13 +32,21 @@
             type=currSel.getAttribute("data-value");
         }
         document.getElementById("platform").value=type;
+        document.getElementById("platformCards").setAttribute("style","display: none;");
+        document.getElementById("categoryCards").setAttribute("style","display: block;");
+            case expression:
+
+                break;
+            default:
+
+        }")
     };
 </script>
 <!-- Platform Field -->
 <div class="row intro">
     What platform is your app on?
 </div>
-<div class="form-group row">
+<div class="form-group row" id="platformCards">
     <div class="card card-select left-img" id="Android-cardSelect" name="platformCards" style="width: 18rem;"
          data-value="Android"
          onclick="selectPlatform('Android')">
@@ -56,7 +64,7 @@
             <h5 class="card-title">iOS</h5>
         </div>
     </div>
-    <div class="card card-select" id="Web-cardSelect" name="platformCards" style="width: 18rem;" data-value="Web"
+    <div class="card card-select left-img" id="Web-cardSelect" name="platformCards" style="width: 18rem;" data-value="Web"
          onclick="selectPlatform('Web')">
         <img class="card-img-top" src="{{asset('assets/images/creator.png')}}"
              alt="Web image">
@@ -66,13 +74,12 @@
     </div>
     <input type="hidden" id="platform" name="platform" value="">
 </div>
-    <h2>Select Categories you're looking into</h2>
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-6" id="categoryCards">
     <?php $i = 0 ?>
     @foreach($categories as $category)
         <?php if($i == 5){ ?>
 </div>
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-6" id="categories" style="display: none;">
     <?php
     $i = 0;
     } ?>

@@ -1,9 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row intro">
-    Pitch an idea
-</div>
     <div class="content">
         @include('adminlte-templates::common.errors')
                     {!! Form::open(['route' => 'ideas.store']) !!}

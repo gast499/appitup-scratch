@@ -39,7 +39,7 @@
     What platform is your app on?
 </div>
 <div class="form-group row">
-    <div class="card card-select" id="Android-cardSelect" name="platformCards" style="width: 18rem;"
+    <div class="card card-select left-img" id="Android-cardSelect" name="platformCards" style="width: 18rem;"
          data-value="Android"
          onclick="selectPlatform('Android')">
         <img class="card-img-top" src="{{asset('assets/images/dreamer.png')}}"
@@ -48,7 +48,7 @@
             <h5 class="card-title">Android</h5>
         </div>
     </div>
-    <div class="card card-select" id="iOS-cardSelect" name="platformCards" style="width: 18rem;" data-value="iOS"
+    <div class="card card-select right-img" id="iOS-cardSelect" name="platformCards" style="width: 18rem;" data-value="iOS"
          onclick="selectPlatform('iOS')">
         <img class="card-img-top" src="{{asset('assets/images/creator.png')}}"
              alt="iOS image">

@@ -116,7 +116,7 @@ html, body {
 
 
 
-#data-cardSelect1 {
+.left-img {
     position: relative;
     float: left;
     width: 30%;
@@ -124,7 +124,7 @@ html, body {
     margin-right:10%;
 }
 
-#data-cardSelect2 {
+.right-img {
     position: relative;
     float: right;
     width: 30%;

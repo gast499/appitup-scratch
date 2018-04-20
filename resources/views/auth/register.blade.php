@@ -11,13 +11,13 @@
     @csrf
     <div id="selectType" style="display: block;">
         <div class="form-group row">
-            <div class="card card-select" id="data-cardSelect1" data-value="Dreamer" onclick="selectCard('1')">
+            <div class="card card-select left-img" id="data-cardSelect1" data-value="Dreamer" onclick="selectCard('1')">
                 <img class="card-img-top signup-img" src="{{asset('assets/images/dreamer.png')}}">
                 <div class="card-body">
                     <h5 class="card-title">Dreamer</h5>
                 </div>
             </div>
-            <div class="card card-select" id="data-cardSelect2" data-value="Creator" onclick="selectCard('2')">
+            <div class="card card-select right-img" id="data-cardSelect2" data-value="Creator" onclick="selectCard('2')">
                 <img class="card-img-top signup-img" src="{{asset('assets/images/creator.png')}}">
                 <div class="card-body">
                     <h5 class="card-title">Creator</h5>

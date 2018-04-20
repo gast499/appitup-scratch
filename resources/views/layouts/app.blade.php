@@ -44,7 +44,7 @@
             {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}<span class="caret"></span>
             <img src="{{\Illuminate\Support\Facades\Storage::url('public/avatars')}}/{{Auth::user()->id}}/{{ Auth::user()->avatar }}" style="width:32px; height:32px; top:10px; left:10px; border-radius:50%">
             </a>
-        </div>
+        </div> 
 
         <form id="logout-form" action="{{ route('logout') }}" method="POST"
         style="display: none;">

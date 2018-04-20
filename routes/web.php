@@ -29,4 +29,5 @@ Route::get('/profile', 'ProfileController@viewCurrentUserProfile')->name('profil
 Route::get('/profile/edit', 'ProfileController@viewEditCurrentUserProfile')->name('view-edit-profile');
 Route::post('/profile/edit', 'ProfileController@editCurrentUserProfile')->name('edit-profile');
 Route::get('/idea/match', 'IdeaController@match')->name('idea.match');
+Route::post('idea/match.', 'IdeaController@selectMatch')->name('idea.selectmatch');
 Route::get('/pitch', 'PitchController@pitch');

@@ -54,4 +54,13 @@ class User extends Authenticatable
     public function ideas(){
         return $this->belongsToMany('App\Models\Idea', 'ideas_users')->withTimestamps();
     }
+    public function getIdeaIdsAttribute(){
+        return $this->ideas->pluck('id')->all();
+    }
+    public function getCategoryIdsAttribute(){
+        return $this->categories->pluck('id')->all();
+    }
+    public function projects(){
+        return $this->hasMany('App\Models\Idea', 'dev_id');
+    }
 }

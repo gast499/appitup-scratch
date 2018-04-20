@@ -14,6 +14,7 @@ class CreateIdeaCategoriesTable extends Migration
     public function up()
     {
         Schema::create('idea_categories', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('idea_id')->unsigned();
             $table->foreign('idea_id')->references('id')->on('ideas');
             $table->integer('category_id')->unsigned();

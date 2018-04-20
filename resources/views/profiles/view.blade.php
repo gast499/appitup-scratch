@@ -10,7 +10,7 @@
                        href="{!! route('view-edit-profile') !!}">Edit Profile</a>
                 </h1>
                 <div class="row" id="profile-img">
-                    <img src="/storage/avatars/{{$user->id}}/{{ $user->avatar }}"
+                    <img src="{{\Illuminate\Support\Facades\Storage::url('public/avatars')}}/{{$user->id}}/{{ $user->avatar }}"
                          style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
                 </div>
                 <br><br>
@@ -59,12 +59,97 @@
                             </div>
                         </div>
                     @endif
+                    @if(isset($user->projects))
+                        <h4>Projects</h4>
+                        @foreach($user->projects as $proj)
+                            <div class="row col-md-9">
+                                <h3>{{$proj->title}}</h3>
+                            </div>
+                            <div class="row col-md-9">
+                                <h4>Platform: </h4>
+                                <div class="card card-select" id="{{$proj->platform}}-cardSelect" style="width: 18rem;"
+                                     data-value="{{$proj->platform}}">
+                                    <img class="card-img-top" src="{{asset('assets/images/dreamer.png')}}"
+                                         alt="{{$proj->platform}} image">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{$proj->platform}}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row col-md-9">
+                                <h4>Categories</h4>
+                                <br><br>
+                                @foreach($proj->categories as $cat)
+                                    <div class="card card-select" id="{{$cat->name}}-cardSelect" style="width: 18rem;"
+                                         data-value="{{$cat->id}}">
+                                        <img class="card-img-top" src="{{asset('assets/images/creator.png')}}"
+                                             alt="{{$cat->name}} image">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{$cat->name}}</h5>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                            <div class="row col-md-9">
+                                <h4>Partner</h4>
+                                <?php $dream = $proj->users->first() ?>
+                                <div class="card card-select" id="dreamer-cardSelect" style="width: 18rem;"
+                                     data-value="{{$dream->id}}">
+                                    <img class="card-img-top" src="{{asset('assets/images/creator.png')}}"
+                                         alt="{{$dream->first_name}} {{$dream->last_name}} image">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{$dream->first_name}} {{$dream->last_name}}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
                 @elseif($user->type == "Dreamer" && (isset($user->ideas)))
+                    @foreach($user->ideas as $idea)
+                        <div class="row col-md-9">
+                            <h3>{{$idea->title}}</h3>
+                        </div>
+                        <div class="row col-md-9">
+                            <h4>Platform: </h4>
+                            <div class="card card-select" id="{{$idea->platform}}-cardSelect" style="width: 18rem;"
+                                 data-value="{{$idea->platform}}">
+                                <img class="card-img-top" src="{{asset('assets/images/dreamer.png')}}"
+                                     alt="{{$idea->platform}} image">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{$idea->platform}}</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row col-md-9">
+                            <h4>Categories</h4>
+                            <br><br>
+                            @foreach($idea->categories as $cat)
+                                <div class="card card-select" id="{{$cat->name}}-cardSelect" style="width: 18rem;"
+                                     data-value="{{$cat->id}}">
+                                    <img class="card-img-top" src="{{asset('assets/images/creator.png')}}"
+                                         alt="{{$cat->name}} image">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{$cat->name}}</h5>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                        <div class="row col-md-9">
+                            <h4>Partner</h4>
+                            <div class="card card-select" id="creator-cardSelect" style="width: 18rem;"
+                                 data-value="{{$idea->devs->id}}">
+                                <img class="card-img-top" src="{{asset('assets/images/creator.png')}}"
+                                     alt="{{$idea->devs->first_name}} {{$idea->devs->last_name}} image">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{$idea->devs->first_name}} {{$idea->devs->last_name}}</h5>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
                     <h1 class="pull-right">
                         <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px"
                            href="{!! route('ideas.create') !!}">Pitch an Idea</a>
                     </h1>
-
                 @endif
             </div>
         </div>

@@ -35,7 +35,7 @@
     };
 </script>
 <!-- Platform Field -->
-    <h2>What Platform do you Specialize in?</h2>
+    <h2>What Platform do you want to target?</h2>
 <div class="form-group row">
     <div class="card card-select" id="Android-cardSelect" name="platformCards" style="width: 18rem;"
          data-value="Android"

@@ -39,7 +39,7 @@
         <li class="nav-item dropdown">
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-            <img src="/storage/avatars/{{Auth::user()->id}}/{{ Auth::user()->avatar }}" style="width:32px; height:32px; top:10px; left:10px; border-radius:50%">
+            <img src="{{\Illuminate\Support\Facades\Storage::url('public/avatars')}}/{{Auth::user()->id}}/{{ Auth::user()->avatar }}" style="width:32px; height:32px; top:10px; left:10px; border-radius:50%">
             {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}<span class="caret"></span>
         </a>
 

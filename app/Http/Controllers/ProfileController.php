@@ -125,7 +125,8 @@ class ProfileController extends Controller
                 //mkdir('storage/app/public/avatars/'.$user->id.'/');
                 Storage::makeDirectory($tmp);
             }
-            Storage::put($tmp.$filename,$img );
+            Storage::delete(Storage::files($tmp));
+            Storage::put($tmp.$filename, (string)$img );
             $user->avatar= $filename;
         }
         // if input password exists in the request replace password in the user object

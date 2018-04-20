@@ -36,7 +36,7 @@
         </div>
         @endif
         @else
-        <div class="top-right links">
+        <div class="top-right links"> 
             <a href="{{ route('profile') }}">Profile</a>
             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"

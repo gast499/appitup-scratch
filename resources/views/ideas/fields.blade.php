@@ -35,7 +35,6 @@
         document.getElementById("platformCards").setAttribute("style","display: none;");
         document.getElementById("categories").setAttribute("style","display: block;");
         document.getElementById("categorieCards").setAttribute("style","display: block;");
-        }
     };
 </script>
 <!-- Platform Field -->

@@ -39,7 +39,7 @@
                 break;
             default:
 
-        }")
+        }
     };
 </script>
 <!-- Platform Field -->

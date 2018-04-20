@@ -41,8 +41,8 @@
             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-            <img src="{{\Illuminate\Support\Facades\Storage::url('public/avatars')}}/{{Auth::user()->id}}/{{ Auth::user()->avatar }}" style="width:32px; height:32px; top:10px; left:10px; border-radius:50%">
             {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}<span class="caret"></span>
+            <img src="{{\Illuminate\Support\Facades\Storage::url('public/avatars')}}/{{Auth::user()->id}}/{{ Auth::user()->avatar }}" style="width:32px; height:32px; top:10px; left:10px; border-radius:50%">
             </a>
         </div>
 

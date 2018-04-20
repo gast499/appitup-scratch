@@ -39,7 +39,7 @@
                 break;
             default:
 
-        }")
+        }
     };
 </script>
 <!-- Platform Field -->
@@ -74,7 +74,7 @@
     </div>
     <input type="hidden" id="platform" name="platform" value="">
 </div>
-<div class="form-group col-sm-6" id="categoryCards">
+<div class="form-group col-sm-6" id="categoryCards" style="display: none;">
     <?php $i = 0 ?>
     @foreach($categories as $category)
         <?php if($i == 5){ ?>

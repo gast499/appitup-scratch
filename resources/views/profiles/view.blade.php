@@ -155,6 +155,7 @@
                         <div class="row col-md-9">
                             <h4>Categories</h4>
                             <br><br>
+                            {{dd($idea->categories)}}
                             @foreach($idea->categories as $cat)
                                 <div class="card card-select" id="{{$cat->name}}-cardSelect" style="width: 18rem;"
                                      data-value="{{$cat->id}}">

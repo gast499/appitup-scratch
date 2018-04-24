@@ -150,7 +150,7 @@
 					
 					
 				<!--if the users is a dreamer-->	
-                @elseif($user->type == "Dreamer" && (isset($user->ideas)))
+                @elseif($user->type == "Dreamer" && ($user->ideas->count() != 0))
                     @foreach($user->ideas as $idea)
                         <div class="row col-md-9">
                             <h3>{{$idea->title}}</h3>
@@ -169,7 +169,6 @@
                         <div class="row col-md-9">
                             <h4>Categories</h4>
                             <br><br>
-                            {{dd($idea->categories->count())}}
                             @foreach($idea->categories as $cat)
                                 <div class="card card-select" id="{{$cat->name}}-cardSelect" style="width: 18rem;"
                                      data-value="{{$cat->id}}">

@@ -8,7 +8,7 @@
         };
     </script>
     <div class="container">
-        <div class="row col-md-9">
+        <div class="row col-md-9" id="titleidea" style="display: none;">
             <h3>{{$idea->title}}</h3>
         </div>
         <div class="row col-md-9">

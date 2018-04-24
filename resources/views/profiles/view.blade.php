@@ -5,6 +5,7 @@
         <div class="row">
             <div class="col-md-9 personal-info">
                 <h3>{{$user->type}}'s Profile</h3>
+				<h3>Ricky Newton</h3>
                 <h1 class="pull-right">
                     <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px"
                        href="{!! route('view-edit-profile') !!}">Edit Profile</a>

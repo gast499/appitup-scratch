@@ -4,17 +4,23 @@
     <div class="container">		
 		
             <div class="personal-info">
-			
+
 				<div class="row">
+				  <div class="col-sm-4">.col-sm-4</div>
+				  <div class="col-sm-4">.col-sm-4</div>
+				  <div class="col-sm-4">.col-sm-4</div>
+				</div>			
+			
+				<div class="row tex-center">
 					<div class="col-md-2">
 						<img src="{{\Illuminate\Support\Facades\Storage::url('public/avatars')}}/{{$user->id}}/{{ $user->avatar }}"
-                         class="img-rounded">
+                         class="img-round">
 					
 					</div>
 					<div class="col-md-4">
-					<h3>{{$user->first_name}} {{$user->last_name}}</h3>
-					<h3>2D Game Developer</h3>
-					<h3>52 projects completed</h3>
+						<h3>{{$user->first_name}} {{$user->last_name}}</h3>
+						<h3>2D Game Developer</h3>
+						<h3>52 projects completed</h3>
 					</div>
 					<div class="col-md-6">
 						<h3>Contact Me</h3>

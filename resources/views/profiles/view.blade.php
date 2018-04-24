@@ -1,23 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">		
+    <div class="container">	
+			<!--
 		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
-		
-            <div class="personal-info">
-
-				<div class="row">
-				  <div class="col-sm-4">.col-sm-4</div>
-				  <div class="col-sm-4">.col-sm-4</div>
-				  <div class="col-sm-4">.col-sm-4</div>
-				</div>			
+			-->
 			
-				<div class="row tex-center">
+            <div class="personal-info">
+	
+			
+				<div class="row">
 					<div class="col-md-2">
 						<img src="{{\Illuminate\Support\Facades\Storage::url('public/avatars')}}/{{$user->id}}/{{ $user->avatar }}"
-                         class="img-round">
+                         class="img-circle">
 					
 					</div>
 					<div class="col-md-4">

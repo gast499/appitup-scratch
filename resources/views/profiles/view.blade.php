@@ -3,17 +3,32 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-9 personal-info">
+		
+		
+            <div class="personal-info">
+			
+			
+			
+			
                 <h3>{{$user->type}}'s Profile</h3>
 				<h3>Ricky Newton</h3>
+				
+				
                 <h1 class="pull-right">
                     <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px"
                        href="{!! route('view-edit-profile') !!}">Edit Profile</a>
                 </h1>
+				
+				
+				
+				
                 <div class="row" id="profile-img">
                     <img src="{{\Illuminate\Support\Facades\Storage::url('public/avatars')}}/{{$user->id}}/{{ $user->avatar }}"
                          style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
                 </div>
+				
+				
+				
                 <br><br>
                 <div class="row">
                     <table class="table table-striped">
@@ -35,7 +50,13 @@
                         </tr>
                     </table>
                 </div>
+				
+				
+				
+				
+				<!--if the users is a creator-->
                 @if($user->type == "Creator")
+					
                     @if(isset($user->categories))
                         <h4>Interests</h4>
                         @foreach($user->categories as $cat)
@@ -48,7 +69,9 @@
                                 </div>
                             </div>
                         @endforeach
-                    @endif
+                    @endif					
+					
+					
                     @if(isset($user->platform))
                         <h4>Platform: </h4>
                         <div class="card card-select" id="{{$user->platform}}-cardSelect" style="width: 18rem;"
@@ -60,6 +83,8 @@
                             </div>
                         </div>
                     @endif
+					
+					
                     @if(isset($user->projects))
                         <h4>Projects</h4>
                         @foreach($user->projects as $proj)
@@ -105,6 +130,12 @@
                             </div>
                         @endforeach
                     @endif
+					
+					
+					
+					
+					
+				<!--if the users is a dreamer-->	
                 @elseif($user->type == "Dreamer" && (isset($user->ideas)))
                     @foreach($user->ideas as $idea)
                         <div class="row col-md-9">
@@ -152,7 +183,17 @@
                            href="{!! route('ideas.create') !!}">Pitch an Idea</a>
                     </h1>
                 @endif
+				
+				
+				
+				
+				
+				
             </div>
+			
+			
+			
+			
         </div>
     </div>
 @endsection

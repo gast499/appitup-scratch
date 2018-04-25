@@ -123,7 +123,7 @@ class IdeaController extends AppBaseController
             $idea->save();
             $idea->devs()->associate((int)$request["creatorID"]);
         }
-        $idea->save();
+        $saveCheck = $idea->save();
 //        $creator->projects()->associate((int)$request["ideaID"]);
         return redirect(route('profile'));
     }
@@ -170,7 +170,7 @@ class IdeaController extends AppBaseController
     function store(CreateIdeaRequest $request)
     {
         $cats = json_decode($request["categories"]);
-        dd($request);
+//        dd($request);
         if ($request['categories']) {
             $this->validate($request, [
                 'categories' => "required"
@@ -184,7 +184,7 @@ class IdeaController extends AppBaseController
         foreach ($cats as $cat) {
             $idea->categories()->attach($cat);
         }
-        $idea->save();
+        $saveCheck = $idea->save();
         Flash::success('Idea saved successfully.');
         $foundMatches = $this->match($idea);
         $matchedIds = array_keys($foundMatches);

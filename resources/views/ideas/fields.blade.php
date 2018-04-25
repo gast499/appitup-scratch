@@ -9,13 +9,13 @@
                 tmparr.push(parseInt(des[i].getAttribute("data-value")));
             }
         }
-        tmpstr = '';
-        for (var i = 0; i < tmparr.length; i++){
-            tmpstr += ',' + tmparr[i];
-        }
-        tmpstr = tmpstr.substr(1);
-        // var type = JSON.stringify(tmparr);
-        var type = JSON.stringify(tmpstr);
+        // tmpstr = '';
+        // for (var i = 0; i < tmparr.length; i++){
+        //     tmpstr += ',' + tmparr[i];
+        // }
+        // tmpstr = tmpstr.substr(1);
+        var type = JSON.stringify(tmparr);
+        // var type = JSON.stringify(tmpstr);
         // if (currSel.classList.contains("is-selected")){
         //     type=currSel.getAttribute("data-value");
         // }
@@ -79,7 +79,7 @@
     @foreach($categories as $category)
         <?php if($i == 5){ ?>
 </div>
-<div class="form-group col-sm-6" id="categories" style="display: none;">
+<div class="form-group col-sm-6" id="categoriesCards" style="display: none;">
     <?php
     $i = 0;
     } ?>

@@ -2,14 +2,70 @@
 
 @section('content')
 
-    <div class="container">
-        <!--
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        -->
+
+		<style>
+			.btn{
+				border-radius: 45%;
+			}
+		</style>
+		
+    <div class="container">	
+			<!--
+		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
+			-->
+		
+	
+				 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+				<div class="row">
+					<div class="col-md-2">
+						<img src="{{\Illuminate\Support\Facades\Storage::url('public/avatars')}}/{{$user->id}}/{{ $user->avatar }}"
+                         class="img-circle img-responsive">
+					
+					</div>
+					<div class="col-md-4">
+						<h1><b>{{$user->first_name}} {{$user->last_name}}</b></h1>
+						<h4>2D Game Developer</h4>
+						<h4>52 projects completed</h4>
+						<h4>{{$user->type}}</h4>
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+							<div class="col-md-4">
+								<button type="button" class="btn btn-default">Contact Me</button>
+							</div>
+							<div class="col-md-4">	
+								<button type="button" class="btn btn-success">Work with me</button>								
+							</div>	
+						</div>								
+					</div>					
+				
+				</div>
+			
+			
+				
+				
+                <h1 class="pull-right">
+                    <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px"
+                       href="{!! route('view-edit-profile') !!}">Edit Profile</a>
+                </h1>
+				
+				
+				
+				
+                
+
+ 
+
+    
+
+
 
         <div class="personal-info">
+
+
+         
 
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
             <div class="row">
@@ -44,12 +100,13 @@
             </h1>
 
 
-            <div class="container">
+           
                 <!--
               <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
               <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
               <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
                 -->
+
 
                 <div class="personal-info">
 
@@ -236,7 +293,7 @@
                 </div>
 
 
-            </div>
+            
         </div>
     </div>
 @endsection

@@ -185,7 +185,8 @@ class IdeaController extends AppBaseController
         foreach ($cats as $cat) {
             $idea->categories()->attach($cat);
         }
-        $idea->save();
+        $saveCheck = $idea->save();
+        dd($saveCheck);
         Flash::success('Idea saved successfully.');
         $foundMatches = $this->match($idea);
         $matchedIds = array_keys($foundMatches);

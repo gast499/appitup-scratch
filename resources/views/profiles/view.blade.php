@@ -18,13 +18,20 @@
 					
 					</div>
 					<div class="col-md-4">
-						<h3>{{$user->first_name}} {{$user->last_name}}</h3>
-						<h3>2D Game Developer</h3>
-						<h3>52 projects completed</h3>
+						<h1><b>{{$user->first_name}} {{$user->last_name}}</b></h1>
+						<h4>2D Game Developer</h4>
+						<h4>52 projects completed</h4>
+						<h4>{{$user->type}}</h4>
 					</div>
 					<div class="col-md-6">
-						<h3>Contact Me</h3>
-						<h3>Work with me</h3>					
+						<div class="row">
+							<div class="col-md-4">
+								<button type="button" class="btn btn-default">Contact Me</button>
+							</div>
+							<div class="col-md-4">	
+								<button type="button" class="btn btn-success">Work with me</button>								
+							</div>	
+						</div>								
 					</div>					
 				
 				</div>

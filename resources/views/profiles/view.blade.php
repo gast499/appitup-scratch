@@ -38,8 +38,6 @@
 				</div>
 			
 			
-                <h3>{{$user->type}}'s Profile</h3>
-				<h3>Ricky Newton</h3>
 				
 				
                 <h1 class="pull-right">
@@ -50,7 +48,7 @@
 				
 				
 				
-                <div class="row" id="profile-img">
+                
 
     <div class="container">
         <!--
@@ -64,22 +62,22 @@
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 
-
+			<!--
             <h3>{{$user->type}}'s Profile</h3>
             <h3>Ricky Newton</h3>
-
-
+			-->
+			<!--
             <h1 class="pull-right">
                 <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px"
                    href="{!! route('view-edit-profile') !!}">Edit Profile</a>
             </h1>
-
-
+			-->
+			<!--
             <div class="row" id="profile-img">
                 <img src="{{\Illuminate\Support\Facades\Storage::url('public/avatars')}}/{{$user->id}}/{{ $user->avatar }}"
                      style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
             </div>
-
+			-->
 
             <br><br>
             <div class="row">

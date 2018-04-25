@@ -118,6 +118,7 @@ class IdeaController extends AppBaseController
         }
         $idea = Idea::find((int)$request["ideaID"]);
         $creator = User::find((int)$request["creatorID"]);
+        dd($request, $creator, $idea);
         if($creator->id != $idea->devs->id){
             $idea->devs()->dissociate();
             $idea->save();

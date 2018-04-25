@@ -170,6 +170,7 @@ class IdeaController extends AppBaseController
     function store(CreateIdeaRequest $request)
     {
         $cats = json_decode($request["categories"]);
+        dd($cats);
         if ($request['categories']) {
             $this->validate($request, [
                 'categories' => "required"

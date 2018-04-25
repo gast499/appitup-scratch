@@ -167,7 +167,7 @@ class IdeaController extends AppBaseController
      * @return Response
      */
     public
-    function store(CreateIdeaRequest $request)
+    function store(Request $request)
     {
         $cats = json_decode($request["categories"]);
         dd($request);

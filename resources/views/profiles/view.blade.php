@@ -32,11 +32,11 @@
 					</div>
 					<div class="col-md-6">
 						<div class="row">
-							<div class="col-md-4">
-								<button type="button" class="btn btn-default">Contact Me</button>
+							<div class="col-md-6">
+								<button type="button" class="btn btn-default" style="border-color: #39D9AD; color:black">Contact Me</button>
 							</div>
-							<div class="col-md-4">	
-								<button type="button" class="btn btn-success">Work with me</button>								
+							<div class="col-md-6">	
+								<button type="button" class="btn" style="background-color: #39D9AD; color: white;">Work with me</button>								
 							</div>	
 						</div>								
 					</div>					

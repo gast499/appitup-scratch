@@ -118,12 +118,14 @@ class IdeaController extends AppBaseController
         }
         $idea = Idea::find((int)$request["ideaID"]);
         $creator = User::find((int)$request["creatorID"]);
-        dd($idea->devs);
-        if($creator->id != $idea->devs->id){
-            $idea->devs()->dissociate();
-            $idea->save();
-            $idea->devs()->associate((int)$request["creatorID"]);
+        if ($idea->devs != null){
+            if($creator->id != $idea->devs->id){
+                $idea->devs()->dissociate();
+                $idea->save();
+            }
         }
+        $idea->devs()->associate((int)$request["creatorID"]);
+
         $saveCheck = $idea->save();
 //        $creator->projects()->associate((int)$request["ideaID"]);
         return redirect(route('profile'));

@@ -7,6 +7,12 @@
 			.btn{
 				border-radius: 45%;
 			}
+			.center {
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+				width: 40%;
+			}			
 		</style>
 		
     <div class="container">	
@@ -29,6 +35,8 @@
 						<h4>2D Game Developer</h4>
 						<h4>52 projects completed</h4>
 						<h4>{{$user->type}}</h4>
+						<h4>Location</h4>
+                        <h4>{{$user->location}}</h4>
 					</div>
 					<div class="col-md-6">
 						<div class="row">
@@ -57,7 +65,7 @@
                 -->
 
 
-                <div class="personal-info">
+                <div class="personal-info center">
 
                 
 
@@ -80,6 +88,7 @@
 			-->
 
                     <br><br>
+					<!--
                     <div class="row">
                         <table class="table table-striped">
                             <tr>
@@ -100,13 +109,13 @@
                             </tr>
                         </table>
                     </div>
-
+					-->
 
                     <!--if the users is a creator-->
                     @if($user->type == "Creator")
 
                         @if(isset($user->categories))
-                            <h4>Interests</h4>
+                            <h1 class="text-center">Interests</h1>
                             @foreach($user->categories as $cat)
                                 <div class="card card-select" id="{{$cat->name}}-cardSelect" style="width: 18rem;"
                                      data-value="{{$cat->id}}">

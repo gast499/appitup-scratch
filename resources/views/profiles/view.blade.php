@@ -32,8 +32,10 @@
 					</div>
 					<div class="col-md-4">
 						<h1><b>{{$user->first_name}} {{$user->last_name}}</b></h1>
+						<!--
 						<h4>2D Game Developer</h4>
 						<h4>52 projects completed</h4>
+						-->
 						<h4>{{$user->type}}</h4>
 						<h4>Location</h4>
                         <h4>{{$user->location}}</h4>
@@ -127,7 +129,8 @@
                                 </div>
                             @endforeach
                         @endif
-
+							
+						<br/>	
 
                         @if(isset($user->platform))
                             <h4>Platform: </h4>
@@ -141,12 +144,13 @@
                             </div>
                         @endif
 
-
+						<br/>
+						
                         @if(isset($user->projects))
                             <h4>Projects</h4>
                             @foreach($user->projects as $proj)
                                 <div class="row col-md-9">
-                                    <h3>{{$proj->title}}</h3>
+                                    <h1>{{$proj->title}}</h1>
                                 </div>
                                 <div class="row col-md-9">
                                     <h4>Platform: </h4>
@@ -175,6 +179,9 @@
                                         </div>
                                     @endforeach
                                 </div>
+								
+								<br/>
+								
                                 <div class="row col-md-9">
                                     <h4>Partner</h4>
                                     <?php $dream = $proj->users->first() ?>
@@ -188,6 +195,7 @@
                                     </div>
                                 </div>
                             @endforeach
+							<br/>
                         @endif
 
 
@@ -199,7 +207,7 @@
                         @if ($user->ideas->count() != 0)
                             @foreach($user->ideas as $idea)
                                 <div class="row col-md-9">
-                                    <h3>{{$idea->title}}</h3>
+                                    <h1>{{$idea->title}}</h1>
                                 </div>
                                 <div class="row col-md-9">
                                     <h4>Platform: </h4>
@@ -228,6 +236,7 @@
                                         </div>
                                     @endforeach
                                 </div>
+								<br/>
                                 <div class="row col-md-9">
                                     <h4>Partner</h4>
                                     <div class="card card-select" id="creator-cardSelect" style="width: 18rem;"
@@ -240,6 +249,7 @@
                                     </div>
                                 </div>
                             @endforeach
+							<br/>
                         @endif
                         <h1 class="pull-right">
                             <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px"

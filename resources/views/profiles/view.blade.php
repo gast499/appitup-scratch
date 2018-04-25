@@ -2,7 +2,7 @@
 
 @section('content')
 
-<<<<<<< HEAD
+
 		<style>
 			.btn{
 				border-radius: 45%;
@@ -57,21 +57,16 @@
                 
 
  
-=======
-    <div class="container">
->>>>>>> c423250f1178c77d16ad5915470d63a7b06552c2
-        <!--
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        -->
+
+    
+
 
 
         <div class="personal-info">
 
-<<<<<<< HEAD
+
          
-=======
+
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
             <div class="row">
                 <div class="col-md-2">
@@ -105,13 +100,13 @@
             </h1>
 
 
-            <div class="container">
+           
                 <!--
               <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
               <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
               <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
                 -->
->>>>>>> c423250f1178c77d16ad5915470d63a7b06552c2
+
 
                 <div class="personal-info">
 
@@ -298,7 +293,7 @@
                 </div>
 
 
-            </div>
+            
         </div>
     </div>
 @endsection

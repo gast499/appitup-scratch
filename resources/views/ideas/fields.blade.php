@@ -9,8 +9,13 @@
                 tmparr.push(parseInt(des[i].getAttribute("data-value")));
             }
         }
-
-        var type = JSON.stringify(tmparr);
+        tmpstr = '';
+        for (var i = 0; i < tmparr.length; i++){
+            tmpstr += ',' + tmparr[i];
+        }
+        tmpstr = tmpstr.substr(1);
+        // var type = JSON.stringify(tmparr);
+        var type = JSON.stringify(tmpstr);
         // if (currSel.classList.contains("is-selected")){
         //     type=currSel.getAttribute("data-value");
         // }

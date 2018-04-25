@@ -26,7 +26,7 @@ class Idea extends Model
     public $fillable = [
         'platform',
         'title',
-        'dev_id'
+        'dev_id',
     ];
 
     protected $appends = ['user_id', 'category_id'];
@@ -47,6 +47,7 @@ class Idea extends Model
      * @var array
      */
     public static $rules = [
+        'categories' => 'required',
         'platform' => 'required',
         'title' => 'required'
     ];

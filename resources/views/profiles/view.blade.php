@@ -37,8 +37,8 @@
 						<h4>52 projects completed</h4>
 						-->
 						<h4>{{$user->type}}</h4>
-						<h4>Location</h4>
-                        <h4>{{$user->location}}</h4>
+					
+                        <h4><b>Location: </b>{{$user->location}}</h4>
 					</div>
 					<div class="col-md-6">
 						<div class="row">

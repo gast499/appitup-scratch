@@ -14,7 +14,7 @@
 				<div class="row">
 					<div class="col-md-2">
 						<img src="{{\Illuminate\Support\Facades\Storage::url('public/avatars')}}/{{$user->id}}/{{ $user->avatar }}"
-                         class="img-circle">
+                         class="img-circle img-responsive">
 					
 					</div>
 					<div class="col-md-4">

@@ -4,10 +4,12 @@
 @endsection
 
 @section('content')
+<script onload="restart();">
+</script>
 <div class="row intro" id="whoareyou">
     Who are you?
 </div>
-<form method="POST" id="signupForm" onload="restart();" action="{{ route('register') }}">
+<form method="POST" id="signupForm" action="{{ route('register') }}">
     @csrf
     <div id="selectType" style="display: block;">
         <div class="form-group row">

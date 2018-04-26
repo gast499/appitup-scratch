@@ -4,7 +4,7 @@
 @endsection
 
 @section('content')
-<div class="row intro" id="whoareyou" onreadystatechange="restart();">
+<div class="row intro" id="whoareyou">
     Who are you?
 </div>
 <form method="POST" id="signupForm" action="{{ route('register') }}">

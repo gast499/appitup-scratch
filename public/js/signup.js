@@ -1,4 +1,4 @@
-function restart() {
+window.onload = function restart() {
     selectedCard = window.sessionStorage.getItem("selectedCard");
     if (selectedCard) {
         selectCard(selectedCard);

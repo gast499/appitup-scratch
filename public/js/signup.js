@@ -1,3 +1,9 @@
+function restart() {
+    selectedCard = window.sessionStorage("selectedCard");
+    if (selectedCard) {
+        selectCard(selectedCard);
+    }
+}
 
 function selectCard(cardNum) {
     var des = document.getElementsByClassName("card-select");
@@ -12,6 +18,8 @@ function selectCard(cardNum) {
     if (currSel.classList.contains("is-selected")){
         type=currSel.getAttribute("data-value");
     }
+    selectedCard = cardNum;
+    window.sessionStorage.setItem("selectedCard", selectedCard);
     document.getElementById("type").value=type;
     document.getElementById("selectType").setAttribute("style","display: none");
     document.getElementById("emailpassword").setAttribute("style","display: block");

@@ -1,4 +1,5 @@
-function selectCard(cardNum){
+
+function selectCard(cardNum) {
     var des = document.getElementsByClassName("card-select");
     var currSel = document.getElementById("data-cardSelect"+cardNum);
     for (var i = 0; i < des.length; i++){

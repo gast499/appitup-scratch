@@ -47,13 +47,13 @@
 							  
 								@foreach($user->categories as $cat)
 
-											<h4 class="card-title">{{$cat->name}}</h4>
+											<h4 class="">{{$cat->name}}</h4>
 								@endforeach
 							@endif	
 							
 
 							@if(isset($user->platform))
-										<h4 class="card-title">{{$user->platform}}</h4>
+										<h4 class="">{{$user->platform}}</h4>
 							@endif							
 							
 							
@@ -139,9 +139,9 @@
 					-->
 
                     <!--if the users is a creator-->
-				<!--
+				
                     @if($user->type == "Creator")
-						
+					<!--	
                         @if(isset($user->categories))
                             <h1 class="text-center">Interests</h1>
                             @foreach($user->categories as $cat)
@@ -173,20 +173,50 @@
 						<br/>
 						
                         @if(isset($user->projects))
-                            <h4>Projects</h4>
+                           
                             @foreach($user->projects as $proj)
-                                <div class="row col-md-9">
-                                    <h1>{{$proj->title}}</h1>
+                                <div class="">
+                                    <h1><b>{{$proj->title}}<b></h1>
                                 </div>
-                                <div class="row col-md-9">
-                                    <h4>Platform: </h4>
+
+
+
+
+ 
+
+								<?php $dream = $proj->users->first() ?>
+								<div class="row" data-value="{{$dream->id}}">
+									<div class="col-md-2">
+										<img class="card-img-top" src="{{asset('assets/images/creator.png')}}"
+											alt="{{$dream->first_name}} {{$dream->last_name}} image">
+										<h5 class="card-title">{{$dream->first_name}} {{$dream->last_name}}</h5>
+									</div>	
+									<div class="col-md-8" id="{{$proj->platform}}-cardSelect">
+										<h4>Platform: {{$proj->platform}}</h4>
+										<img class="card-img-top" src="{{asset('assets/images/dreamer.png')}}"
+                                             alt="{{$proj->platform}} image">
+									</div>	
+									<div class="col-md-2">
+									
+									</div>	
+								
+								</div>
+								
+								
+								
+								<hr/><hr/><hr/><hr/><hr/><hr/>
+								
+								
+								
+                                <div class="">
+                                    <h4>Platform: {{$proj->platform}}</h4>
                                     <div class="card card-select" id="{{$proj->platform}}-cardSelect"
                                          style="width: 18rem;"
                                          data-value="{{$proj->platform}}">
                                         <img class="card-img-top" src="{{asset('assets/images/dreamer.png')}}"
                                              alt="{{$proj->platform}} image">
                                         <div class="card-body">
-                                            <h5 class="card-title">{{$proj->platform}}</h5>
+                                            <h5 class="card-title"></h5>
                                         </div>
                                     </div>
                                 </div>

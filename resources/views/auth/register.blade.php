@@ -7,15 +7,6 @@
 <div class="row intro" id="whoareyou">
     Who are you?
 </div>
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
 <form method="POST" id="signupForm" action="{{ route('register') }}">
     @csrf
     <div id="selectType" style="display: block;">
@@ -42,7 +33,7 @@
 
             <div class="col-md-6">
                 <input id="email" type="email"
-                class="form-control{{ $errors->any() ? $errors->first('email') : '' }}"
+                class="form-control{{ $errors->has('email') ? $errors->first('email') : '' }}"
                 name="email" value="{{ old('email') }}" required>
 
                 @if ($errors->has('email'))

@@ -4,9 +4,7 @@
 @endsection
 
 @section('content')
-<script onload="restart();">
-</script>
-<div class="row intro" id="whoareyou">
+<div class="row intro" id="whoareyou" onreadystatechange="restart();">
     Who are you?
 </div>
 <form method="POST" id="signupForm" action="{{ route('register') }}">

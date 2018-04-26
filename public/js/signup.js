@@ -1,5 +1,5 @@
 function restart() {
-    selectedCard = window.sessionStorage("selectedCard");
+    selectedCard = window.sessionStorage.getItem("selectedCard");
     if (selectedCard) {
         selectCard(selectedCard);
     }

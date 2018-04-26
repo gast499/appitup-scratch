@@ -39,8 +39,33 @@
 						<h4>{{$user->type}}</h4>
 					
                         <h4><b>Location: </b>{{$user->location}}</h4>
+						
+						
+					 @if($user->type == "Creator")
+							
+							@if(isset($user->categories))
+							  
+								@foreach($user->categories as $cat)
+
+											<h4 class="card-title">{{$cat->name}}</h4>
+								@endforeach
+							@endif	
+							
+
+							@if(isset($user->platform))
+										<h4 class="card-title">{{$user->platform}}</h4>
+							@endif							
+							
+							
+					@endif	
+											
+						
+						
+						
 					</div>
 					<div class="col-md-6">
+						<br/>
+						<br/>
 						<div class="row">
 							<div class="col-md-3">
 								<button type="button" class="btn btn-default" style="border-color: #39D9AD; color:black">Contact Me</button>
@@ -114,8 +139,9 @@
 					-->
 
                     <!--if the users is a creator-->
+				<!--
                     @if($user->type == "Creator")
-
+						
                         @if(isset($user->categories))
                             <h1 class="text-center">Interests</h1>
                             @foreach($user->categories as $cat)
@@ -143,7 +169,7 @@
                                 </div>
                             </div>
                         @endif
-
+				-->
 						<br/>
 						
                         @if(isset($user->projects))

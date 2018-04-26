@@ -7,16 +7,7 @@
 <div class="row intro" id="whoareyou">
     Who are you?
 </div>
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-<form method="POST" id="signupForm" action="{{ route('register') }}">
+<form method="POST" id="signupForm" onload="restart();" action="{{ route('register') }}">
     @csrf
     <div id="selectType" style="display: block;">
         <div class="form-group row">

@@ -41,6 +41,7 @@
                         <h4><b>Location: </b>{{$user->location}}</h4>
 					</div>
 					<div class="col-md-6">
+						<br/>
 						<div class="row">
 							<div class="col-md-3">
 								<button type="button" class="btn btn-default" style="border-color: #39D9AD; color:black">Contact Me</button>

@@ -105,7 +105,7 @@
                     <!--if the users is a creator-->
                     @if($user->type == "Creator")
 
-                        @if(isset($user->categories))
+                        @if($user->categories->count() != 0)
                             <h4>Interests</h4>
                             @foreach($user->categories as $cat)
                                 <div class="card card-select" id="{{$cat->name}}-cardSelect" style="width: 18rem;"
@@ -133,7 +133,7 @@
                         @endif
 
 
-                        @if(isset($user->projects))
+                        @if($user->projects->count() != 0)
                             <h4>Projects</h4>
                             @foreach($user->projects as $proj)
                                 <div class="row col-md-9">

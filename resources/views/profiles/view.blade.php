@@ -8,21 +8,21 @@
 				border-radius: 45%;
 			}
 		</style>
-		
-    <div class="container">	
+
+    <div class="container">
 			<!--
 		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
+		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 			-->
-		
-	
+
+
 				 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 				<div class="row">
 					<div class="col-md-2">
 						<img src="{{\Illuminate\Support\Facades\Storage::url('public/avatars')}}/{{$user->id}}/{{ $user->avatar }}"
                          class="img-circle img-responsive">
-					
+
 					</div>
 					<div class="col-md-4">
 						<h1><b>{{$user->first_name}} {{$user->last_name}}</b></h1>
@@ -35,21 +35,21 @@
 							<div class="col-md-3">
 								<button type="button" class="btn btn-default" style="border-color: #39D9AD; color:black">Contact Me</button>
 							</div>
-							<div class="col-md-1">	
-								<button type="button" class="btn" style="background-color: #39D9AD; color: white;">Work with me</button>								
-							</div>	
-						</div>								
-					</div>					
-				
+							<div class="col-md-1">
+								<button type="button" class="btn" style="background-color: #39D9AD; color: white;">Work with me</button>
+							</div>
+						</div>
+					</div>
+
 				</div>
-			
-			
-				
-				
+
+
+
+
                 <h1 class="pull-right">
                     <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px"
                        href="{!! route('view-edit-profile') !!}">Edit Profile</a>
-                </h1>           
+                </h1>
                 <!--
               <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
               <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -59,7 +59,7 @@
 
                 <div class="personal-info">
 
-                
+
 
 
                 <!--
@@ -105,7 +105,7 @@
                     <!--if the users is a creator-->
                     @if($user->type == "Creator")
 
-                        @if($user->categories->count() != 0)
+                        @if(isset($user->categories))
                             <h4>Interests</h4>
                             @foreach($user->categories as $cat)
                                 <div class="card card-select" id="{{$cat->name}}-cardSelect" style="width: 18rem;"
@@ -133,7 +133,7 @@
                         @endif
 
 
-                        @if($user->projects->count() != 0)
+                        @if(isset($user->projects))
                             <h4>Projects</h4>
                             @foreach($user->projects as $proj)
                                 <div class="row col-md-9">

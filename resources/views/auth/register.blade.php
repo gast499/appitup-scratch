@@ -33,7 +33,7 @@
 
             <div class="col-md-6">
                 <input id="email" type="email"
-                class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
+                class="form-control{{ $errors->has('email') ? $errors->first('email') : '' }}"
                 name="email" value="{{ old('email') }}" required>
 
                 @if ($errors->has('email'))

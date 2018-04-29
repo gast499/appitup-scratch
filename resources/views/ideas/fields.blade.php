@@ -50,20 +50,20 @@
     <div class="card card-select left-img" id="Android-cardSelect" name="platformCards" style="width: 18rem;"
          data-value="Android"
          onclick="selectPlatform('Android')">
-        <div class="card-body">
-            <h5 class="PlatformTitle">Android</h5>
+        <div class="PlatformTitle">
+            Android
         </div>
     </div>
     <div class="card card-select right-img" id="iOS-cardSelect" name="platformCards" style="width: 18rem;" data-value="iOS"
          onclick="selectPlatform('iOS')">
-        <div class="card-body">
-            <h5 class="PlatformTitle">iOS</h5>
+        <div class="PlatformTitle">
+            iOS
         </div>
     </div>
     <div class="card card-select left-img" id="Web-cardSelect" name="platformCards" style="width: 18rem;" data-value="Web"
          onclick="selectPlatform('Web')">
-        <div class="card-body">
-            <h5 class="PlatformTitle">Web</h5>
+        <div class="PlatformTitle">
+            Web
         </div>
     </div>
     <input type="hidden" id="platform" name="platform" value="">

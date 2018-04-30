@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Validation\Rule;
+use App\VerifyUser;
+use App\Mail\VerifyMail;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
@@ -41,7 +45,11 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
-
+    protected function registered(Request $request, $user)
+    {
+        $this->guard()->logout();
+        return redirect('/login')->with('status', 'We sent you an activation code. Check your email and click on the link to verify.');
+    }
     /**
      * Get a validator for an incoming registration request.
      *
@@ -68,8 +76,29 @@ class RegisterController extends Controller
         if(!in_array($user->id, Storage::directories('public/avatars'))){
             //mkdir('storage/app/public/avatars/'.$user->id.'/');
             Storage::makeDirectory($tmp);
-            Storage::copy('public/avatars/default.jpg', $tmp.'default.jpg');
+            if (!Storage::disk('s3')->exists($tmp.'default.jpg')){
+                Storage::copy('public/avatars/default.jpg', $tmp.'default.jpg');
+            }
         }
+    }
+
+    public function verifyUser($token)
+    {
+        $verifyUser = VerifyUser::where('token', $token)->first();
+        if(isset($verifyUser) ){
+            $user = $verifyUser->user;
+            if(!$user->verified) {
+                $verifyUser->user->verified = 1;
+                $verifyUser->user->save();
+                $status = "Your e-mail is verified. You can now login.";
+            }else{
+                $status = "Your e-mail is already verified. You can now login.";
+            }
+        }else{
+            return redirect('/login')->with('warning', "Sorry your email cannot be identified.");
+        }
+
+        return redirect('/login')->with('status', $status);
     }
     protected function create(array $data)
     {
@@ -79,6 +108,11 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        $verifyUser = VerifyUser::create([
+            'user_id' => $user->id,
+            'token' => str_random(40)
+        ]);
+        Mail::to($user->email)->send(new VerifyMail($user));
         $this->createDir($user);
         return $user;
     }

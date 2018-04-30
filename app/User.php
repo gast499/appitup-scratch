@@ -63,4 +63,9 @@ class User extends Authenticatable
     public function projects(){
         return $this->hasMany('App\Models\Idea', 'dev_id');
     }
+    public function verifyUser()
+    {
+        return $this->hasOne('App\VerifyUser');
+    }
+
 }

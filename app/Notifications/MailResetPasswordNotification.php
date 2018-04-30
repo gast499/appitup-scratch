@@ -48,8 +48,8 @@ class MailResetPasswordNotification extends Notification
         }
 
         return (new MailMessage)
-            ->line('You are receiving this email because we received a password reset request for your account.')
-            ->action('Reset Password', url(route('password.reset', $this->token, false)))
+            ->line('You are receiving this Email because we received a password reset request for your account.')
+            ->action('Reset Password', url(route('password.reset', $this->token, true)))
             ->line('If you did not request a password reset, no further action is required.');
     }
 

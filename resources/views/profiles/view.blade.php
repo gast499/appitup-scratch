@@ -41,23 +41,23 @@
                         <h4><b>Location: </b>{{$user->location}}</h4>
 						
 						
-					 @if($user->type == "Creator")
-							
-							@if(isset($user->categories))
-							  
-								@foreach($user->categories as $cat)
+						@if($user->type == "Creator")
+								
+								@if(isset($user->categories))
+								  
+									@foreach($user->categories as $cat)
 
-											<h4 class="">{{$cat->name}}</h4>
-								@endforeach
-							@endif	
-							
+												<h4 class="">{{$cat->name}}</h4>
+									@endforeach
+								@endif	
+								
 
-							@if(isset($user->platform))
-										<h4 class="">{{$user->platform}}</h4>
-							@endif							
-							
-							
-					@endif	
+								@if(isset($user->platform))
+											<h4 class="">{{$user->platform}}</h4>
+								@endif							
+								
+								
+						@endif	
 											
 						
 						

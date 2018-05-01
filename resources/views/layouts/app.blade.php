@@ -15,7 +15,7 @@
     @yield('scripts')
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,500,600" rel="stylesheet" type="text/css">
     <!-- Styles -->
     {{--<link href="{{ asset('css/app.css') }}" rel="stylesheet">;--}}
     <link href="{{ asset('css/index.css') }}" rel="stylesheet">;
@@ -45,7 +45,7 @@
             {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}<span class="caret"></span>
             <img src="{{\Illuminate\Support\Facades\Storage::url('public/avatars')}}/{{Auth::user()->id}}/{{ Auth::user()->avatar }}" style="width:32px; height:32px; top:10px; left:10px; border-radius:50%">
             </a>
-        </div> 
+        </div>
 
         <form id="logout-form" action="{{ route('logout') }}" method="POST"
         style="display: none;">

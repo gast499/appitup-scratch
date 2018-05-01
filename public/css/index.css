@@ -144,7 +144,14 @@ html, body {
 .card .card-select .pitchCard {
     width: 100%;
     text-align: center;
-    font-size: 30px;
+    font-size: 24px;
+}
+
+.card .card-select .pitchCard .is-selected {
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
 }
 
 .PlatformTitle {
@@ -153,7 +160,6 @@ html, body {
     color: #4A4A4A;
     font-size: 24px;
     width: 100%;
-    margin-bottom: 25px;
 }
 
 .form-group {

@@ -141,7 +141,7 @@ html, body {
     font-size: 20px;
 }
 
-.pitchCard {
+.card .card-select .pitchCard {
     width: 100%;
     text-align: center;
 }

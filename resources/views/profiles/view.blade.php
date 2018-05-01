@@ -29,6 +29,34 @@
 						<h4>2D Game Developer</h4>
 						<h4>52 projects completed</h4>
 						<h4>{{$user->type}}</h4>
+<<<<<<< HEAD
+					
+                        <h4><b>Location: </b>{{$user->location}}</h4>
+						
+						
+						@if($user->type == "Creator")
+								
+								@if(isset($user->categories))
+								  
+									@foreach($user->categories as $cat)
+
+												<h4 class="">{{$cat->name}}</h4>
+									@endforeach
+								@endif	
+								
+
+								@if(isset($user->platform))
+											<h4 class="">{{$user->platform}}</h4>
+								@endif							
+								
+								
+						@endif	
+											
+						
+						
+						
+=======
+>>>>>>> d0cb0bcafaef77685cdd21830e5d112a3027016f
 					</div>
 					<div class="col-md-6">
 						<div class="row">

@@ -15,7 +15,7 @@
 		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 			-->
-
+<!--
 
 				 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 				<div class="row">
@@ -78,7 +78,7 @@
                      style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
             </div>
 			-->
-
+<!--
                     <br><br>
                     <div class="row">
                         <table class="table table-striped">
@@ -103,6 +103,7 @@
 
 
                     <!--if the users is a creator-->
+					<!--
                     @if($user->type == "Creator")
 
                         @if($user->categories->count() != 0)
@@ -186,6 +187,7 @@
 
 
                     <!--if the users is a dreamer-->
+					<!--
                     @elseif($user->type == "Dreamer")
                         @if ($user->ideas->count() != 0)
                             @foreach($user->ideas as $idea)
@@ -241,7 +243,7 @@
 
                 </div>
 
-
+-->
 
 
     </div>

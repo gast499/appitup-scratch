@@ -10,8 +10,8 @@
 <form method="POST" id="signupForm" action="{{ route('register') }}">
     @csrf
     <div id="selectType" style="display: block;">
-        <div class="form-group row">
-            <div class="card card-select left-img" id="data-cardSelect1" data-value="Dreamer" onclick="selectCard('1')">
+        <div class="form-group row2">
+            <div class="card card-select" id="data-cardSelect1" data-value="Dreamer" onclick="selectCard('1')">
                 <img class="card-img-top signup-img" src="{{asset('assets/images/dreamer.png')}}">
                 <div class="card-body">
                     <h5 class="card-title">Dreamer</h5>

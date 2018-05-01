@@ -7,36 +7,29 @@
 			.btn{
 				border-radius: 45%;
 			}
-			.center {
-				display: block;
-				margin-left: auto;
-				margin-right: auto;
-				width: 40%;
-			}			
 		</style>
-		
-    <div class="container">	
+
+    <div class="container">
 			<!--
 		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
+		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 			-->
-		
-	
+
+
 				 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 				<div class="row">
 					<div class="col-md-2">
 						<img src="{{\Illuminate\Support\Facades\Storage::url('public/avatars')}}/{{$user->id}}/{{ $user->avatar }}"
                          class="img-circle img-responsive">
-					
+
 					</div>
 					<div class="col-md-4">
 						<h1><b>{{$user->first_name}} {{$user->last_name}}</b></h1>
-						<!--
 						<h4>2D Game Developer</h4>
 						<h4>52 projects completed</h4>
-						-->
 						<h4>{{$user->type}}</h4>
+<<<<<<< HEAD
 					
                         <h4><b>Location: </b>{{$user->location}}</h4>
 						
@@ -62,29 +55,29 @@
 						
 						
 						
+=======
+>>>>>>> d0cb0bcafaef77685cdd21830e5d112a3027016f
 					</div>
 					<div class="col-md-6">
-						<br/>
-						<br/>
 						<div class="row">
 							<div class="col-md-3">
 								<button type="button" class="btn btn-default" style="border-color: #39D9AD; color:black">Contact Me</button>
 							</div>
-							<div class="col-md-1">	
-								<button type="button" class="btn" style="background-color: #39D9AD; color: white;">Work with me</button>								
-							</div>	
-						</div>								
-					</div>					
-				
+							<div class="col-md-1">
+								<button type="button" class="btn" style="background-color: #39D9AD; color: white;">Work with me</button>
+							</div>
+						</div>
+					</div>
+
 				</div>
-			
-			
-				
-				
+
+
+
+
                 <h1 class="pull-right">
                     <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px"
                        href="{!! route('view-edit-profile') !!}">Edit Profile</a>
-                </h1>           
+                </h1>
                 <!--
               <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
               <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -92,9 +85,9 @@
                 -->
 
 
-                <div class="personal-info center">
+                <div class="personal-info">
 
-                
+
 
 
                 <!--
@@ -115,7 +108,6 @@
 			-->
 
                     <br><br>
-					<!--
                     <div class="row">
                         <table class="table table-striped">
                             <tr>
@@ -136,14 +128,13 @@
                             </tr>
                         </table>
                     </div>
-					-->
+
 
                     <!--if the users is a creator-->
-				
                     @if($user->type == "Creator")
-					<!--	
-                        @if(isset($user->categories))
-                            <h1 class="text-center">Interests</h1>
+
+                        @if($user->categories->count() != 0)
+                            <h4>Interests</h4>
                             @foreach($user->categories as $cat)
                                 <div class="card card-select" id="{{$cat->name}}-cardSelect" style="width: 18rem;"
                                      data-value="{{$cat->id}}">
@@ -155,8 +146,7 @@
                                 </div>
                             @endforeach
                         @endif
-							
-						<br/>	
+
 
                         @if(isset($user->platform))
                             <h4>Platform: </h4>
@@ -169,54 +159,23 @@
                                 </div>
                             </div>
                         @endif
-				-->
-						<br/>
-						
-                        @if(isset($user->projects))
-                           
+
+
+                        @if($user->projects->count() != 0)
+                            <h4>Projects</h4>
                             @foreach($user->projects as $proj)
-                                <div class="">
-                                    <h1><b>{{$proj->title}}<b></h1>
+                                <div class="row col-md-9">
+                                    <h3>{{$proj->title}}</h3>
                                 </div>
-
-
-
-
- 
-
-								<?php $dream = $proj->users->first() ?>
-								<div class="row" data-value="{{$dream->id}}">
-									<div class="col-md-2">
-										<img class="card-img-top" src="{{asset('assets/images/creator.png')}}"
-											alt="{{$dream->first_name}} {{$dream->last_name}} image">
-										<h5 class="card-title">{{$dream->first_name}} {{$dream->last_name}}</h5>
-									</div>	
-									<div class="col-md-8" id="{{$proj->platform}}-cardSelect">
-										<h4>Platform: {{$proj->platform}}</h4>
-										<img class="card-img-top" src="{{asset('assets/images/dreamer.png')}}"
-                                             alt="{{$proj->platform}} image">
-									</div>	
-									<div class="col-md-2">
-									
-									</div>	
-								
-								</div>
-								
-								
-								
-								<hr/><hr/><hr/><hr/><hr/><hr/>
-								
-								
-								
-                                <div class="">
-                                    <h4>Platform: {{$proj->platform}}</h4>
+                                <div class="row col-md-9">
+                                    <h4>Platform: </h4>
                                     <div class="card card-select" id="{{$proj->platform}}-cardSelect"
                                          style="width: 18rem;"
                                          data-value="{{$proj->platform}}">
                                         <img class="card-img-top" src="{{asset('assets/images/dreamer.png')}}"
                                              alt="{{$proj->platform}} image">
                                         <div class="card-body">
-                                            <h5 class="card-title"></h5>
+                                            <h5 class="card-title">{{$proj->platform}}</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -235,9 +194,6 @@
                                         </div>
                                     @endforeach
                                 </div>
-								
-								<br/>
-								
                                 <div class="row col-md-9">
                                     <h4>Partner</h4>
                                     <?php $dream = $proj->users->first() ?>
@@ -251,7 +207,6 @@
                                     </div>
                                 </div>
                             @endforeach
-							<br/>
                         @endif
 
 
@@ -263,7 +218,7 @@
                         @if ($user->ideas->count() != 0)
                             @foreach($user->ideas as $idea)
                                 <div class="row col-md-9">
-                                    <h1>{{$idea->title}}</h1>
+                                    <h3>{{$idea->title}}</h3>
                                 </div>
                                 <div class="row col-md-9">
                                     <h4>Platform: </h4>
@@ -292,7 +247,6 @@
                                         </div>
                                     @endforeach
                                 </div>
-								<br/>
                                 <div class="row col-md-9">
                                     <h4>Partner</h4>
                                     <div class="card card-select" id="creator-cardSelect" style="width: 18rem;"
@@ -305,7 +259,6 @@
                                     </div>
                                 </div>
                             @endforeach
-							<br/>
                         @endif
                         <h1 class="pull-right">
                             <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px"

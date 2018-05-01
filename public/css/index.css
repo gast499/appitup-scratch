@@ -141,6 +141,12 @@ html, body {
     font-size: 20px;
 }
 
+.PlatformTitle {
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    font-size: 30px;
+}
+
 .form-group {
     text-align: center;
     font-size: 20px;

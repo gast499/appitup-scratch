@@ -31,3 +31,4 @@ Route::post('/profile/edit', 'ProfileController@editCurrentUserProfile')->name('
 Route::get('/idea/match', 'IdeaController@match')->name('idea.match');
 Route::post('idea/match.', 'IdeaController@selectMatch')->name('idea.selectmatch');
 Route::get('/pitch', 'PitchController@pitch');
+Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');

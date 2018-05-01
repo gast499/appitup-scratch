@@ -37,7 +37,7 @@
                 </div>
             @endforeach
         </div>
-        @if(isset($creators))
+        @if($creators -> count() != 0)
             <form class="form-horizontal" method="POST"
                   action="{{ route('idea.selectmatch') }}">
                 {{ csrf_field() }}

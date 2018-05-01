@@ -23,7 +23,7 @@ class Category extends Model
 
 
     public $fillable = [
-        'name'
+        'name', 'url'
     ];
 
     /**
@@ -41,7 +41,8 @@ class Category extends Model
      * @var array
      */
     public static $rules = [
-        'name' => 'required'
+        'name' => 'required',
+        'url' => 'required'
     ];
 
     public function ideas(){

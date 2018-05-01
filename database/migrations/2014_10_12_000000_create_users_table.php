@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('platform')->nullable();
             $table->string('location')->nullable();
             $table->rememberToken();
-            $table->boolean('verified')->default(false);
+            $table->boolean('verified')->default(true);
             $table->timestamps();
         });
     }

@@ -144,6 +144,7 @@ html, body {
 .card .card-select .pitchCard {
     width: 100%;
     text-align: center;
+    font-size: 30px;
 }
 
 .PlatformTitle {

@@ -106,11 +106,11 @@ class IdeaController extends AppBaseController
 
     public function selectMatch(Request $request)
     {
-        if ($request['creatorID']) {
+//        if ($request['creatorID']) {
             $this->validate($request, [
                 'creatorID' => 'required'
             ]);
-        }
+//        }
         if ($request['ideaID']) {
             $this->validate($request, [
                 'ideaID' => 'required'

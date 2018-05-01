@@ -47,20 +47,20 @@
     What platform is your app on?
 </div>
 <div class="form-group row" id="platformCards">
-    <div class="card card-select pitchCard" id="Android-cardSelect" name="platformCards" style="width: 18rem;"
+    <div class="card card-select pitchCard" id="Android-cardSelect" name="platformCards"
          data-value="Android"
          onclick="selectPlatform('Android')">
         <div class="PlatformTitle">
             Android
         </div>
     </div>
-    <div class="card card-select pitchCard" id="iOS-cardSelect" name="platformCards" style="width: 18rem;" data-value="iOS"
+    <div class="card card-select pitchCard" id="iOS-cardSelect" name="platformCards" data-value="iOS"
          onclick="selectPlatform('iOS')">
         <div class="PlatformTitle">
             iOS
         </div>
     </div>
-    <div class="card card-select pitchCard" id="Web-cardSelect" name="platformCards" style="width: 18rem;" data-value="Web"
+    <div class="card card-select pitchCard" id="Web-cardSelect" name="platformCards" data-value="Web"
          onclick="selectPlatform('Web')">
         <div class="PlatformTitle">
             Web

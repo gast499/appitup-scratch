@@ -53,13 +53,14 @@
         </form>
     </div>
     @endguest
+</div>
+
     <div id="app">
     </div>
-
+    
 <main class="content">
     @yield('content')
 </main>
-</div>
 <div id="circle1" class="circle"></div>
 <div id="circle2" class="circle"></div>
 </body>

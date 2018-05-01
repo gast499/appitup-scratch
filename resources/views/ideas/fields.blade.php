@@ -37,7 +37,6 @@
             type=currSel.getAttribute("data-value");
         }
         document.getElementById("platform").value=type;
-        document.getElementById("platformCards").setAttribute("style","display: none;");
         document.getElementById("categories").setAttribute("style","display: block;");
         document.getElementById("categoryCards").setAttribute("style","display: block;");
     };
